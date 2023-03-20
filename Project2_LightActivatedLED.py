@@ -38,7 +38,6 @@ while True: #Looping over and over again
 # If the button pin reads True (on), then it executes the indented code
 if GPIO.input(Button_Pin) == True: #When the button is pressed, blink LED
 sleep(LED_Off) #Keep LED off for defined duration
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
 sleep(LED_On) #Keep LED on for defined duration
 GPIO.output(LED_Pin, GPIO.LOW) #Turn lED off
