@@ -39,7 +39,6 @@ Wait_Time = 1
 
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 #Our output pins, start off
 GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
@@ -80,7 +79,6 @@ sleep(time)
 GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
 GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
 print('backward')
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 sleep(1)
 
 # For challenge 4, we will use a dummy variable to help with modulo operator
