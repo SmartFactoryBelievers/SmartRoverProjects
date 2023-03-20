@@ -38,7 +38,6 @@ GPIO.setmode(GPIO.BOARD)
 #Our output pins, start off
 GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Buzzer_Pin, GPIO.OUT, initial=GPIO.LOW)
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 #Our input pins from the selector
 GPIO.setup(A_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(C_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -74,7 +73,6 @@ output_pin_on(Buzzer_Pin, Pin_Off)
 output_pin_off(Buzzer_Pin, Pin_On)
 # If A and C are both pressed, by pressing B, maybe we can flash both LED and buzzer?
 # Replace the ?? with the LED_Pin and Buzzer_Pin variables and then uncomment
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 if read_selector_button(A_Pin) and read_selector_button(C_Pin):
 #output_pin_on(??, Pin_Off)
 #output_pin_off(??, Pin_On)
