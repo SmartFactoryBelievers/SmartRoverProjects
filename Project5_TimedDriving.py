@@ -38,7 +38,6 @@ GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 #Our input pin from the button
 GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 
 #Let's write some driving functions we can use later to program a pathdef drive_forward():
 def drive_forward(time):
@@ -80,7 +79,6 @@ Start_Time = time.time() #start the timer
 while GPIO.input(Button_Pin): #while the button is pressed...
 print("Button Pressed")
 return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 # For challenges 3 and 4, we will use a dummy variable to help with modulo operator
 count = 0
 # Replace the True with the modulo operator statement as %, which means remainder in division
