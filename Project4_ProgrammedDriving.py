@@ -39,7 +39,6 @@ GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 
 #Let's write some driving functions we can use later to program a driving path
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 def drive_forward(time):
 GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
 GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
@@ -79,7 +78,6 @@ def drive_backward(time):
 # Changing the value of range() increases the number of loops performed
 for n in range(1):
 # Let's use the driving functions defined above to create a driving path
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 # For challenges 2 and 3, try changing the driving functions and order here
 sleep(Wait_Time)
 drive_forward(Forward_Time)
