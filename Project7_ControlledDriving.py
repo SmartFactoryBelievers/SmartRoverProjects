@@ -78,7 +78,6 @@ sleep(1)
 def drive_right_turn(time):
 GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor bkwd
 GPIO.output(Right_Backward_Pin, GPIO.HIGH) #R motor fwd
-Copyright © Deloitte Development LLC 2022. All Rights Reserved. Developed in collaboration with the National Math + Science Initiative.
 sleep(time)
 GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor bkwd
 GPIO.output(Right_Backward_Pin, GPIO.LOW) #R motor fwd
