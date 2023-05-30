@@ -18,7 +18,7 @@ import RPi.GPIO as GPIO
 # This way, we can edit the value at the beginning and the changes flow through
 LED_Pin = 7 #the internal Pi pin number that goes to snap 7
 
-# For challenge 1, we can try different values here to blink in new patterns
+#------------------------ CHALLENGE 1: CHANGE THE VALUES OF LED_ON AND LED_OFF ----------------------
 LED_On = .2 #duration of LED flash, seconds
 LED_Off = .1 #duration in between flashes, seconds
 
