@@ -86,16 +86,21 @@ count = 0
 # Replace the True with the modulo operator statement as %, which means remainder in division
 # So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
 # To use this as a logical, let's try count % 2 == 0
+
 # For challenge 5, we will set a maximum light search time for the loop
 Max_Search_Time = 4 #seconds
 # If the rover has not found light by then, we can get out of the loop with a break statement
 # break exits the innermost loop and allows the rover to return to the first sleep command
+
+
 while True: # Continuous outer while loop
 sleep(0.25)
 count = count + 1 # Increment the counter for the modulo
 # If the phototransistor detects enough light, drive towards it
 if GPIO.input(Photo_Pin):
-# For challenges 1 and 2, change driving instructions here
+
+#------------------------ CHALLENGE 1: CHANGE THE VALUES BELOW TO DRIVE IN NEW PATTERNS ----------------------
+#------------------------ CHALLENGE 2: GET CREATIVE AND ADD NEW DRIVING FUNCTIONS TO CHANGE THE LIGHT-SEEKING SPIN PATTERNS ----------------------
 drive_forward(Forward_Time)
 # If there's not enough light, let's look for it by spinning the rover
 else:
@@ -104,9 +109,10 @@ Start_Time = time.time()
 while not(GPIO.input(Photo_Pin)):
 Elapsed_Time = round(time.time() - Start_Time,2)
 print('Not enough light, searching for more')
-if True: # Try changing the True to a comparitive (<) between
-# Elapsed_Time and Max_Search_Time for challenge 5
-if True: # Try changing the True to the modulo for challenge 4
+
+#------------------------ CHALLENGE 4: REPLACE THE "True" WITH THE MODULO OPERATOR ----------------------
+#------------------------ CHALLENGE 5: REPLACE THE "True" WITH A COMPARATIVE (<) BETWEEN Elapsed_Time and Max_Search_Time ----------------------
+if True:
 drive_left_turn(Left_Turn_Time)
 sleep(Wait_Time)
 else: # For challenge 4, modulo uses these drive commands on odd loops
