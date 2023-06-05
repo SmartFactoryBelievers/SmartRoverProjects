@@ -23,7 +23,7 @@ Right_Forward_Pin = 26 #the internal Pi pin number that goes to snap 3
 Right_Backward_Pin = 21 #the internal Pi pin number that goes to snap 4
 #Here we can define the timing variables for the driving functions, in seconds
 
-# For challenge 1, we can try different values here to drive in new patterns
+#------------------------ CHALLENGE 1: CHANGE THE VALUES BELOW TO DRIVE IN NEW PATTERNS ----------------------
 Forward_Time = 2
 Backward_Time = 1
 Left_Turn_Time = 0.5
@@ -63,9 +63,11 @@ GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
 GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
 print('right turn')
 sleep(1)
+
 # Can you finish the function by filling in the blanks for the pins and states?
 # This is a backward driving function, so both backward pins should be High then Low
-# Uncomment the code when complete
+
+#------------------------ REPLACE THE ?? WITH THE CORRECT VARIABLES AND UNCOMMENT ----------------------
 def drive_backward(time):
 #GPIO.output(??, GPIO.???) #Left motor backward
 #GPIO.output(??, GPIO.???) #Right motor backward
@@ -74,11 +76,12 @@ def drive_backward(time):
 #GPIO.output(??, GPIO.???) #Right motor off
 #print('backward')
 #sleep(1)
-#Here we can use a for loop to control the number of times the code is executed
-# Changing the value of range() increases the number of loops performed
+
+#Here we can use a "for" loop to control the number of times the code is executed
+#------------------------ TRY CHANGING THE VALUE OF range() TO INCREASE THE NUMBER OF LOOPS PERFORMED ----------------------
 for n in range(1):
 # Let's use the driving functions defined above to create a driving path
-# For challenges 2 and 3, try changing the driving functions and order here
+#------------------------ CHALLENGES 2 & 3: CREATE YOUR OWN CUSTOM DRIVING PATH BY REORDERING THE DIFFERENT DRIVE FUNCTIONS AND TIME VARIABLES  ----------------------
 sleep(Wait_Time)
 drive_forward(Forward_Time)
 drive_left_turn(Left_Turn_Time)
