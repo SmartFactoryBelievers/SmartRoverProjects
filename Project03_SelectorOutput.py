@@ -29,7 +29,7 @@ C_Pin = 18 #the internal Pi pin number that goes to snap 6
 LED_Pin = 26 #the internal Pi pin number that goes to snap 3
 Buzzer_Pin = 21 #the internal Pi pin number that goes to snap 4
 
-# For challenge 1, we can try different values here to blink in new patterns
+#------------------------ CHALLENGE 1: CHANGE THE VALUES OF LED_ON AND LED_OFF ----------------------
 Pin_On = 3 #duration of LED flash, seconds
 Pin_Off = 0.5 #duration in between flashes, seconds
 
@@ -55,24 +55,28 @@ return GPIO.input(In_Pin)
 def output_pin_on(Out_Pin, Delay):
 sleep(Delay)
 GPIO.output(Out_Pin, GPIO.HIGH)
+
 #Here's a function for turning an output pin off, can you fill in the missing pieces?
-# Replace the ?? with the variables and then uncomment
 def output_pin_off(Out_Pin, Delay):
+  
+#------------------------ REPLACE THE ?? WITH THE CORRECT VARIABLES AND UNCOMMENT ----------------------
 #sleep(??) #wait the Delay
 #GPIO.output(??, GPIO.LOW) #turn the Out_Pin off
+
 while True: #Looping over and over again
 # Here we can use the functions we defined to read buttons and control outputs
 # For the challenges, try changing the button and output pins in the below code
-# If A is pressed and C is not, let's blink the LED
+# If A is pressed and C is not, the LED blinks
 if read_selector_button(A_Pin) and not(read_selector_button(C_Pin)):
 output_pin_on(LED_Pin, Pin_Off)
 output_pin_off(LED_Pin, Pin_On)
-# If C is pressed and A is not, let's buzz the buzzer
+# If C is pressed and A is not, the buzzer will buzz
 if read_selector_button(C_Pin) and not(read_selector_button(A_Pin)):
 output_pin_on(Buzzer_Pin, Pin_Off)
 output_pin_off(Buzzer_Pin, Pin_On)
-# If A and C are both pressed, by pressing B, maybe we can flash both LED and buzzer?
-# Replace the ?? with the LED_Pin and Buzzer_Pin variables and then uncomment
+#By pressing B, both A and C will be pressed. This will turn on both the LED and buzzer.
+
+#------------------------ REPLACE THE ?? WITH THE LED_Pin or Buzzer_Pin VARIABLES AND UNCOMMENT ----------------------
 if read_selector_button(A_Pin) and read_selector_button(C_Pin):
 #output_pin_on(??, Pin_Off)
 #output_pin_off(??, Pin_On)
