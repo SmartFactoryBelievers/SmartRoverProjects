@@ -32,17 +32,20 @@ from time import sleep
 camera = PiCamera()
 # Change the number of pixels and clarity of the camera
 # For challenge 1 and 2, see what low and high resolution look like
+
+#------------------------ CHALLENGE 1: CHANGE THE RESOLUTION TO THE MINIMUM (64, 64) ----------------------
 camera.resolution = (640, 480)
 # Change the rate at which the camera records images
+
+#------------------------ CHALLENGE 2: CHANGE THE RESOLUTION TO THE MAXIMUM (2592, 1944) AND FRAME RATE 15  ----------------------
 camera.framerate = 30
 # Rotate the image by x degrees
 # Note that the camera assembly is upside down so 180 is right side up
 
-# For challenge 3, try other rotation angles
+#------------------------ CHALLENGE 3: CHANGE THE CAMERA ROTATION TO FLIP IT UPSIDE DOWN (0) OR LEFT/RIGHT (90, 270) ----------------------
 camera.rotation = 180
 
-# For challenge 4, try annotating the image
-# Add text on top of the image
+#------------------------ CHALLENGE 4: ADD TEXT ON TOP OF THE IMAGE ----------------------
 camera.annotate_text = 'Hello World!'
 # Change the text size on top of the image between 6 and 160
 camera.annotate_text_size = 50
@@ -58,15 +61,18 @@ camera.start_preview()
 sleep(5)
 camera.stop_preview()
 
-# For challenge 5, try iterating through the brightness levels instead of contrast
 camera.start_preview()
 for i in range(100):
+  
+# For challenge 5, try iterating through the brightness levels instead of contrast  
+#------------------------ CHALLENGE 5: CHANGE THE VARIABLE TO ITERATE THROUGH BRIGHTNESS INSTEAD OF CONTRAST ----------------------
 camera.contrast = i
 camera.annotate_text = '%s' %i
 sleep(0.1)
 camera.stop_preview()
 
 # For challenge 6, try iterating through IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES
+#------------------------ CHALLENGE 6: CHANGE THE "for" STATEMENT TO ITERATE THROUGH IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES ----------------------
 camera.start_preview()
 for effect in camera.IMAGE_EFFECTS:
 camera.annotate_text = '%s' %effect
