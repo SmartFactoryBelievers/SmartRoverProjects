@@ -13,8 +13,8 @@
 # Incorporate the button press timer from project 5 to add Simon Says to driving functions
 
 #Challege 4
-# See how B uses a double If to see if its pressed and then released or held? Can you try
-# something similar for A and C to create different commands there too?
+# See how B uses a double If to see if its pressed and then released or held? 
+# Can you try something similar for A and C to create different commands there too?
 
 #Challenge 5
 # Replace the length-3 snap connector with the phototransistor - now all three buttons
@@ -50,6 +50,7 @@ GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 #Our input pin from the button
 GPIO.setup(A_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(C_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
 #Let's write some driving functions we can use later to program a pathdef drive_forward():
 def drive_forward(time):
 GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor fwd
@@ -91,20 +92,23 @@ while GPIO.input(Button_Pin): #while the button is pressed...
 print("Button Pressed")
 return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
 
-# For challenge 3, try uncommenting the Press_Time statements, then use it for the
-# the drive commands time arguments
+#------------------------ CHALLENGE 1: CHANGE THE DRIVE FUNCTIONS BELOW TO SWITCH THE DRIVING DIRECTIONS ----------------------
+#------------------------ CHALLENGE 2: ADD NEW DRIVE FUNCTIONS BELOW TO CHANGE THE DRIVING PATTERNS FOR EACH BUTTON PRESS ----------------------
 while True: #Looping over and over again
 sleep(0.5)
 # Only pressing A
 if GPIO.input(A_Pin) and not GPIO.input(C_Pin): #only pressing A
-# For challenge 4, you can use a sleep delay and second if, else to see
-# whether A was pressed and released or held
-#Press_Time = button_press_timer(A_Pin) # For challenge 3
+
+#------------------------ CHALLENGE 3: UNCOMMENT ALL OF THE Press_Time STATEMENTS BELOW TO PLAY "SIMON SAYS" ----------------------
+#Press_Time = button_press_timer(A_Pin)
 drive_forward(Forward_Time)
 # Only pressing C
 if GPIO.input(C_Pin) and not GPIO.input(A_Pin): #only pressing C
-# For challenge 4, you can use a sleep delay and second if, else to see
-# whether C was pressed and released or held
+  
+# See how B uses a double If to see if its pressed and then released or held? 
+# Can you try something similar for A and C to create different commands there too?
+#------------------------ CHALLENGE 4: ADD A SECOND "if" STATEMENT AND SLEEP DELAY TO CHECK WHETHER C WAS PRESSED, RELEASED, OR HELD ----------------------
+
 #Press_Time = button_press_timer(C_Pin) # For challenge 3
 drive_backward(Backward_Time)
 # Pressing B, we can use timing to determine if it's released or held
