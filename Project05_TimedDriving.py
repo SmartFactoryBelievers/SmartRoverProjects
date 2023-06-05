@@ -7,13 +7,13 @@
 # Try changing the drive functions to switch the driving directions
 
 #Challenge 2
-# Add new drive functions to activate in the loop to create a new path
+# Change the "True" to  the modulo operator "count % 2 == 0"
 
 #Challege 3
-# Use the modulo opertor to change the driving directions based on even or odd numbered presses
+# With the modulo, add new dirivng functions for even numbered presses
 
 #Challege 4
-# With the modulo, add new dirivng functions for even or odd numbered presses
+# With the modulo, add new dirivng functions for odd numbered presses
 
 #Importing libraries
 # Here we want the sleep function for timing and GPIO for the Pi's pins
@@ -40,6 +40,7 @@ GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 #Let's write some driving functions we can use later to program a pathdef drive_forward():
+#------------------------ CHALLENGE 1: CHANGE THE VALUES BELOW TO DRIVE IN NEW PATTERNS ----------------------
 def drive_forward(time):
 GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
 GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
@@ -48,6 +49,7 @@ GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
 GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
 print('forward')
 sleep(1)
+
 def drive_left_turn(time):
 GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
 GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
@@ -56,6 +58,7 @@ GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
 GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
 print('left turn')
 sleep(1)
+
 def drive_right_turn(time):
 GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
 GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
@@ -64,6 +67,7 @@ GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
 GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
 print('right turn')
 sleep(1)
+
 def drive_backward(time):
 GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
 GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
@@ -79,20 +83,24 @@ Start_Time = time.time() #start the timer
 while GPIO.input(Button_Pin): #while the button is pressed...
 print("Button Pressed")
 return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
-# For challenges 3 and 4, we will use a dummy variable to help with modulo operator
+
+# We will use a dummy variable "count" to help with modulo operator
 count = 0
 # Replace the True with the modulo operator statement as %, which means remainder in division
 # So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
 # To use this as a logical, let's try count % 2 == 0
+
+#------------------------ CHALLENGE 2: CHANGE THE "True' TO THE MODULO OPERATOR ----------------------
 while True: #Looping over and over again
 sleep(0.25)
 # If the button is pressed, let's use the timer function to see how long
 if GPIO.input(Button_Pin):
 Button_Time = button_press_timer()
 print('Button pressed ' + str(Button_Time) + ' seconds')
-if True: # Try changing the True to the modulo for challenges 3 and 4
-#For challenges 1 and 2, try adding new driving functions here
+#------------------------ CHALLENGE 3: CHANGE THE "True" TO THE MODULO OPERATOR ----------------------
+if True: 
+#------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR EVEN BUTTON PRESSES ----------------------
 drive_forward(Button_Time)
-else: # To be used in challenges 3 and 4
-# Add other drive functions here for odd button presses
+else: 
+#------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR ODD BUTTON PRESSES ----------------------
 count = count + 1 # We increment the counter for the next button press
