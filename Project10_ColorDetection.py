@@ -24,6 +24,7 @@ from picamera import PiCamera
 import numpy as np
 
 #Let's define variables so we can use them later
+#------------------------ CHALLENGE 1: SWAP THE POSITION OF THE LED AND BUZZER IN THE CODE & ON THE ROVER ----------------------
 LED_Pin = 21 #the internal Pi pin number that goes to snap 4
 Buzzer_Pin = 26 #the internal Pi pin number that goes to snap 3
 Button_Pin = 18 #the internal Pi pin number that goes to snap 6
@@ -58,6 +59,8 @@ Noise = Noise-np.mean(Noise)
 
 # For challenge 2, let's create a function like we've done before for outputs
 # It should have output_pin and delay time arguments to turn them High and then Low
+# Don't forget to add your funtion in the "While True" code block below!
+#------------------------ CHALLENGE 2: UNCOMMENT THE LINES AND REPLACE THE ?? WITHT THE CORRECT VARIABLES ----------------------
 #def your_function(??, ???):
 # sleep(???)
 # GPIO.output(??, GPIO.?)
@@ -67,8 +70,11 @@ Noise = Noise-np.mean(Noise)
 # For challenge 3, let's set a threshold the max color must exceed
 # This will help the camera avoid mistakes in bad lighting or glare
 Col_Margin = 0.8
-# Let's check if the max * margin > mid
-# with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
+# Let's check if the max * margin > mid with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
+# HINT: YOU SHOULD MAKE 2 NEW VARIABLES, Col_Max and Col_Mid
+
+#------------------------ CHALLENGE 3: WRITE A LOGICAL STATEMENT FOR MAX COLOR THRESHOLD BELOW ----------------------
+
 
 #Looping with different images to determine object colors upon button press
 print('Ready to take photo')
@@ -83,7 +89,8 @@ RGB_Array = []
 for col in range(0,3):
 RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))
 
-# For challenge 3, replace the True with the logical statement for the margin
+# For challenge 3, replace the True with the logical statement for the margin that the argmax for Color must exceed to be considered a certain color
+#------------------------ CHALLENGE 3: REPLACE "True" WITH YOUR LOGICAL STATEMENT ----------------------
 if True:
 Color = RGB_Text[np.argmax(RGB_Array)]
 print(Color)
@@ -91,8 +98,10 @@ else:
 print('No prominent color found')
 
 # For challenge 4, let's look for a pattern like Red then Color
-# We can use an if statement to see if the Last_Color was Red
+#------------------------ CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT TO CHECK THE Last_Color ----------------------
+# HINT: We can use an if statement to see if the Last_Color was Red
 # Replace this True with a logical to check, remember it's ==, not = here
+
 if True:
 # Activate outputs based on the determined object color
 if Color == 'Red': #LED for Red object
@@ -111,5 +120,6 @@ GPIO.output(LED_Pin, GPIO.LOW) #LED off
 GPIO.output(Buzzer_Pin, GPIO.LOW) #Buzzer off
 
 # For challenge 4, update Last_Color after outputs
+#------------------------ CHALLENGE 4: UNCOMMENT THE LINE BELOW TO UPDATE THE LAST COLOR ----------------------
 #Last_Color = Color
 print('Ready to take photo')
