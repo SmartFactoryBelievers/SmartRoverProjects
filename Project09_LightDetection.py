@@ -48,8 +48,12 @@ rawCapture = PiRGBArray(camera, size=(640, 480))
 # For challenge 4, try setting the third value (Lightness) of Light_Min to 0
 Light_Min = np.array([0,50,155], np.uint8)
 Light_Max = np.array([180,255,255], np.uint8)
+
 # Ambient light percentage threshold for turning the LED
 # For challenges 1 and 2, try changing this value to affect the LED
+
+#------------------------ CHALLENGE 1: CHANGE THE LIGHT THRESHOLD VALUE TO KEEP THE LED ALWAYS ON ----------------------
+#------------------------ CHALLENGE 2: CHANGE THE LIGHT THRESHOLD VALUE TO KEEP THE LED ALWAYS OFF ----------------------
 Light_Threshold = 40
 #Loop Counter, used to settle the camera with ambient light
 i=0
@@ -67,6 +71,7 @@ if i < 1:
 Ambient_Light = np.mean(np.mean(hsv[:,:,2]))
 
 #For challenge 4, try setting Light_Max to the ambient level instead
+#------------------------ CHALLENGE 4: REPLACE Light_Min WITH Light_Max ----------------------
 Light_Min = np.array([0,50,Ambient_Light], np.uint8)
 #Filtering out pixels with less lightness than the minimum/ambient average
 # This creates what's called a mask used in demarcating key regions of an image
@@ -82,11 +87,12 @@ sleep(2)
 GPIO.output(LED_Pin, GPIO.LOW) #LED off
 
 # For challenge 3, if there's not enough light, add a buzzer here
+#------------------------ CHALLENGE 3: UNCOMMENT AND REPLACE THE ?? BELOW TO BUZZ THE BUZZER ----------------------
 else:
 print('Not enough light detected')
-#GPIO.output(??, GPIO.HIGH) #Buzzer on
+#GPIO.output(??, GPIO.HIGH) #Buzzer on (CHALLENGE 3)
 #sleep(2)
-#GPIO.output(??, GPIO.LOW) #Buzzer off
+#GPIO.output(??, GPIO.LOW) #Buzzer off (CHALLENGE 3)
 #Clearing image cache to avoid overwhelming the Pi memory
 rawCapture.truncate(0)
 # Iterate counter
