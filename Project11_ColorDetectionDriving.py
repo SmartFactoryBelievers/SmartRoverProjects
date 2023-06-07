@@ -47,37 +47,37 @@ GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 #Let's write some driving functions we can use later
 def drive_forward(time):
-GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
-GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
-sleep(time)
-GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
-print('forward')
-sleep(1)
+  GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
+  GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
+  sleep(time)
+  GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
+  print('forward')
+  sleep(1)
 def drive_left_turn(time):
-GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
-GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
-sleep(time)
-GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
-print('left turn')
-sleep(1)
+  GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
+  GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
+  sleep(time)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
+  print('left turn')
+  sleep(1)
 def drive_right_turn(time):
-GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
-GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
-sleep(time)
-GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
-print('right turn')
-sleep(1)
+  GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
+  GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
+  sleep(time)
+  GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
+  print('right turn')
+  sleep(1)
 def drive_backward(time):
-GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
-GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
-sleep(time)
-GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
-print('backward')
-sleep(1)
+  GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
+  GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
+  sleep(time)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
+  print('backward')
+  sleep(1)
 
 # For challenge 2, we will use a dummy variable to help with modulo operator
 count = 0
@@ -115,41 +115,46 @@ print('Ready to take photo')
 while True:
 #Press the push button to capture an image
 if GPIO.input(Button_Pin) == True:
-sleep(2)
-print('Photo taken')
-camera.capture(Image,'rgb')
-RGB_Array = []
+  sleep(2)
+  print('Photo taken')
+  camera.capture(Image,'rgb')
+  RGB_Array = []
 # For each of red, green, and blue, calculate the most prominent color through means
 for col in range(0,3):
-RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))
-Color = RGB_Text[np.argmax(RGB_Array)]
-print(Color)
+  RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))
+  Color = RGB_Text[np.argmax(RGB_Array)]
+  print(Color)
 
 # For challenge 3, let's compare the most prominent color to the second most
 # We can use this ratio to set the Color_Intensity variable
 # with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
 # However, the color channels can be negative, so let's use a max to keep positive
+#------------------------ CHALLENGE 3: REPLACE "?" WITH THE CORRECT VARIABLES AND UNCOMMENT THE LINE BELOW ----------------------
 #Color_Intensity = np.max([? / ?, 2])
 
 # For challenge 4, let's look for a pattern like Red then Color
 # We can use an if statement to see if the Last_Color was Red
 # Replace this True with a logical to check, remember it's ==, not = here
+#------------------------ CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT ----------------------
 if True:
 # Activate motor controller outputs based on the determined object color
-if Color == 'Red': #Backward for Red object
-drive_backward(Backward_Time * Color_Intensity)
-sleep(Wait_Time)
-if Color == 'Green': #Forward for Green object
-drive_forward(Forward_Time * Color_Intensity)
-sleep(Wait_Time)
-if Color == 'Blue': #Turn for Blue object
-if True: # Try changing the True to the modulo for challenge 2
-drive_left_turn(Left_Turn_Time * Color_Intensity)
-else: # For challenge 2, modulo uses these drive commands on odd loops
-drive_right_turn(Right_Turn_Time * Color_Intensity)
-sleep(Wait_Time)
-count = count + 1 # Increment the counter for the modulo
+#------------------------ CHALLENGE 1: CHANGE THE COLORS ASSOCIATED WITH EACH DRIVING COMMAND ----------------------
+  if Color == 'Red': #Backward for Red object
+    drive_backward(Backward_Time * Color_Intensity)
+    sleep(Wait_Time)
+  if Color == 'Green': #Forward for Green object
+    drive_forward(Forward_Time * Color_Intensity)
+    sleep(Wait_Time)
+  if Color == 'Blue': #Turn for Blue object
 
-# For challenge 4, update Last_Color after outputs
-#Last_Color = Color
-print('Ready to take photo')
+    #------------------------ CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ----------------------
+    if True: # Try changing the True to the modulo for challenge 2
+      drive_left_turn(Left_Turn_Time * Color_Intensity)
+    else: # For challenge 2, modulo uses these drive commands on odd loops
+      drive_right_turn(Right_Turn_Time * Color_Intensity)
+      sleep(Wait_Time)
+      count = count + 1 # Increment the counter for the modulo
+
+  # For challenge 4, update Last_Color after outputs
+  #Last_Color = Color
+  print('Ready to take photo')
