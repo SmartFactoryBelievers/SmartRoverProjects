@@ -95,6 +95,7 @@ Light_Max = np.array([255,255,255], np.uint8)
 # Ambient light percentage of one side to the other, threshold for turning the rover
 
 # For challenge 1, try adjusting these values to force more or fewer turns
+#------------------------ CHALLENGE 1: CHANGE THE THRESHOLD VALUES BELOW ----------------------
 Left_Threshold = 51
 Right_Threshold = 51
 
@@ -132,18 +133,23 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
   # and np.min([Left_Light_Perc, Right_Light_Perc]), respectively
   # Light_Intensity = max light / min light
     # If the left side is lighter than the threshold, turn left
-    if Left_Light_Perc > Left_Threshold/100:
-    drive_left_turn(Left_Turn_Time * Light_Intensity)
+#------------------------ CHALLENGE 4: UNCOMMENT THE IF/ELSE STATEMENTS BELOW ----------------------
+    #if Left_Light_Perc > Left_Threshold/100:
+    #drive_left_turn(Left_Turn_Time * Light_Intensity)
     
     # If the right side is lighter than the threshold, turn right
-    else:
-      if Right_Light_Perc > Right_Threshold/100:
-      drive_right_turn(Right_Turn_Time * Light_Intensity)
+    #else:
+      #if Right_Light_Perc > Right_Threshold/100:
+      #drive_right_turn(Right_Turn_Time * Light_Intensity)
       
     # If neither side exceeds the threshold, drive forward (or reverse?)
-    else:
+    #else: #END CHALLENGE 4
+      
+#------------------------ CHALLENGE 3: REPLACE "True" WITH A LOGICAL STATEMENT ----------------------
       if True: # Try changing the True to a comparitive (<) between
       # Elapsed_Time and Max_Search_Time for challenge 3
+      
+#------------------------ CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ----------------------
       if True: # Try changing the True to the modulo for challenge 2
       drive_forward(Forward_Time)
       
