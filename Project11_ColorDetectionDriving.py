@@ -1,6 +1,6 @@
 # Project 11
 # Using the Pi camera to capture and analyze the color profile of objects
-# Build the the Project 11 circuit and drive the rover according to colored signs
+# Build the Project 11 circuit and drive the rover according to colored signs
 
 #Challenge 1
 # Try changing the colors associated with the driving commands, like flipping red and green
@@ -113,48 +113,52 @@ Noise = Noise-np.mean(Noise)
 #Looping with different images to determine object colors
 print('Ready to take photo')
 while True:
-#Press the push button to capture an image
-if GPIO.input(Button_Pin) == True:
-  sleep(2)
-  print('Photo taken')
-  camera.capture(Image,'rgb')
-  RGB_Array = []
-# For each of red, green, and blue, calculate the most prominent color through means
-for col in range(0,3):
-  RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))
-  Color = RGB_Text[np.argmax(RGB_Array)]
-  print(Color)
+  #Press the push button to capture an image
+  if GPIO.input(Button_Pin) == True:
+    sleep(2)
+    print('Photo taken')
+    camera.capture(Image,'rgb')
+    RGB_Array = []
+    
+    # For each of red, green, and blue, calculate the most prominent color through means
+    for col in range(0,3):
+      RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))
+      Color = RGB_Text[np.argmax(RGB_Array)]
+      print(Color)
 
-# For challenge 3, let's compare the most prominent color to the second most
-# We can use this ratio to set the Color_Intensity variable
-# with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
-# However, the color channels can be negative, so let's use a max to keep positive
-#------------------------ CHALLENGE 3: REPLACE "?" WITH THE CORRECT VARIABLES AND UNCOMMENT THE LINE BELOW ----------------------
-#Color_Intensity = np.max([? / ?, 2])
-
-# For challenge 4, let's look for a pattern like Red then Color
-# We can use an if statement to see if the Last_Color was Red
-# Replace this True with a logical to check, remember it's ==, not = here
-#------------------------ CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT ----------------------
-if True:
-# Activate motor controller outputs based on the determined object color
-#------------------------ CHALLENGE 1: CHANGE THE COLORS ASSOCIATED WITH EACH DRIVING COMMAND ----------------------
-  if Color == 'Red': #Backward for Red object
-    drive_backward(Backward_Time * Color_Intensity)
-    sleep(Wait_Time)
-  if Color == 'Green': #Forward for Green object
-    drive_forward(Forward_Time * Color_Intensity)
-    sleep(Wait_Time)
-  if Color == 'Blue': #Turn for Blue object
-
-    #------------------------ CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ----------------------
-    if True: # Try changing the True to the modulo for challenge 2
-      drive_left_turn(Left_Turn_Time * Color_Intensity)
-    else: # For challenge 2, modulo uses these drive commands on odd loops
-      drive_right_turn(Right_Turn_Time * Color_Intensity)
-      sleep(Wait_Time)
-      count = count + 1 # Increment the counter for the modulo
-
-  # For challenge 4, update Last_Color after outputs
-  #Last_Color = Color
-  print('Ready to take photo')
+    # For challenge 3, let's compare the most prominent color to the second most
+    # We can use this ratio to set the Color_Intensity variable
+    # with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
+    # However, the color channels can be negative, so let's use a max to keep positive
+    #------------------------ CHALLENGE 3: REPLACE "?" WITH THE CORRECT VARIABLES AND UNCOMMENT THE LINE BELOW ----------------------
+    #Color_Intensity = np.max([? / ?, 2])
+    
+    # For challenge 4, let's look for a pattern like Red then Color
+    # We can use an if statement to see if the Last_Color was Red
+    # Replace this True with a logical to check, remember it's ==, not = here
+    #------------------------ CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT ----------------------
+    if True:
+    # Activate motor controller outputs based on the determined object color
+    #------------------------ CHALLENGE 1: CHANGE THE COLORS ASSOCIATED WITH EACH DRIVING COMMAND ----------------------
+      if Color == 'Red': #Backward for Red object
+        drive_backward(Backward_Time * Color_Intensity)
+        sleep(Wait_Time)
+        
+      if Color == 'Green': #Forward for Green object
+        drive_forward(Forward_Time * Color_Intensity)
+        sleep(Wait_Time)
+        
+      if Color == 'Blue': #Turn for Blue object
+    
+        #------------------------ CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ----------------------
+        if True: # Try changing the True to the modulo for challenge 2
+          drive_left_turn(Left_Turn_Time * Color_Intensity)
+          
+        else: # For challenge 2, modulo uses these drive commands on odd loops
+          drive_right_turn(Right_Turn_Time * Color_Intensity)
+          sleep(Wait_Time)
+          count = count + 1 # Increment the counter for the modulo
+    
+      # For challenge 4, update Last_Color after outputs
+      #Last_Color = Color
+      print('Ready to take photo')
