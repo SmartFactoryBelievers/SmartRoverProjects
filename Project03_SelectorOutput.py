@@ -86,3 +86,12 @@ while True: #Looping over and over again
     
   # Wait 1 second to reset
   sleep(1)
+
+#------------------------ CHALLENGE 2: REPLACE THE LED SNAP COMPONENT WITH THE BUZZER SNAP COMPONENT AND RUN THE PROGRAM AGAIN ----------------------
+#WHAT HAPPENS WHEN YOU COVER THE PHOTOTRANSISTOR WITH YOUR HAND?
+
+#------------------------ CHALLENGE 3: TRY CHANGING THE INPUT PINS FOR A & C BUTTONS (LINES 70 & 74) ----------------------
+
+#------------------------ CHALLENGE 4: TRY CHANGING THE OUTPUT PINS FOR A & C BUTTONS (LINES 71, 72, 75 & 76)----------------------
+
+#------------------------ CHALLENGE 5: TRY CHANGING THE ORDER OF LED AND BUZZER FUNCTIONS IN LINES 81-84 ----------------------
