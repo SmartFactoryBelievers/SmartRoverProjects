@@ -32,55 +32,57 @@ Buzzer_Pin = 21 #the internal Pi pin number that goes to snap 4
 #------------------------ CHALLENGE 1: CHANGE THE VALUES OF LED_ON AND LED_OFF ----------------------
 Pin_On = 3 #duration of LED flash, seconds
 Pin_Off = 0.5 #duration in between flashes, seconds
+#-------------------------------------- END OF CHALLENGE 1 ------------------------------------------
 
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
-#Our output pins, start off
+#We need to setup our LED and Button
 GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Buzzer_Pin, GPIO.OUT, initial=GPIO.LOW)
-#Our input pins from the selector
+#We need to setup our ABC Selector Buttons
 GPIO.setup(A_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(C_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-#Let's write some functions we can use to make the coding easier
+#Let's write some functions we can use to make the coding easier!
 # For a code snippet we will reuse, we can turn it into a function to call later
 # The function name is in blue, and then the arguments it takes are in parentheses
 #Here's a function for seeing if a selector button is pressed
-# So, read_selector_button reads and returns the value of In_Pin
-# This will be helpful for reading the A and C button pins
-def read_selector_button(In_Pin):
-return GPIO.input(In_Pin)
+def read_selector_button(In_Pin): # So, read_selector_button reads and returns the value of In_Pin
+  return GPIO.input(In_Pin) # This will be helpful for reading the A and C button pins
+
 #Here's a function for turning an output pin on
-#So, output_pin_on takes in the pin number and turns it on after a defined delay
-def output_pin_on(Out_Pin, Delay):
-sleep(Delay)
-GPIO.output(Out_Pin, GPIO.HIGH)
+def output_pin_on(Out_Pin, Delay): #So, output_pin_on reads the pin number and turns it on after a defined delay
+  sleep(Delay)
+  GPIO.output(Out_Pin, GPIO.HIGH)
 
 #Here's a function for turning an output pin off, can you fill in the missing pieces?
 def output_pin_off(Out_Pin, Delay):
   
-#------------------------ REPLACE THE ?? WITH THE CORRECT VARIABLES AND UNCOMMENT ----------------------
-#sleep(??) #wait the Delay
-#GPIO.output(??, GPIO.LOW) #turn the Out_Pin off
+  #------------------------ NOW YOU TRY: REPLACE THE ?? WITH THE CORRECT VARIABLES IN LINES 62 & 63 AND UNCOMMENT ----------------------
+  #sleep(??) #wait the Delay
+  #GPIO.output(??, GPIO.LOW) #turn the Out_Pin off
+  #-------------------------------------- END OF EXERCISE ------------------------------------------
 
 while True: #Looping over and over again
-# Here we can use the functions we defined to read buttons and control outputs
-# For the challenges, try changing the button and output pins in the below code
-# If A is pressed and C is not, the LED blinks
-if read_selector_button(A_Pin) and not(read_selector_button(C_Pin)):
-output_pin_on(LED_Pin, Pin_Off)
-output_pin_off(LED_Pin, Pin_On)
-# If C is pressed and A is not, the buzzer will buzz
-if read_selector_button(C_Pin) and not(read_selector_button(A_Pin)):
-output_pin_on(Buzzer_Pin, Pin_Off)
-output_pin_off(Buzzer_Pin, Pin_On)
-#By pressing B, both A and C will be pressed. This will turn on both the LED and buzzer.
-
-#------------------------ REPLACE THE ?? WITH THE LED_Pin or Buzzer_Pin VARIABLES AND UNCOMMENT ----------------------
-if read_selector_button(A_Pin) and read_selector_button(C_Pin):
-#output_pin_on(??, Pin_Off)
-#output_pin_off(??, Pin_On)
-#output_pin_on(??, Pin_Off)
-#output_pin_off(??, Pin_On)
-# Wait 1 second to reset
-sleep(1)
+  # Here we can use the functions we defined to read buttons and control outputs
+  # For the challenges, try changing the button and output pins in the below code
+  # If A is pressed and C is not, the LED blinks
+  if read_selector_button(A_Pin) and not(read_selector_button(C_Pin)):
+    output_pin_on(LED_Pin, Pin_Off)
+    output_pin_off(LED_Pin, Pin_On)
+    # If C is pressed and A is not, the buzzer will buzz
+  if read_selector_button(C_Pin) and not(read_selector_button(A_Pin)):
+    output_pin_on(Buzzer_Pin, Pin_Off)
+    output_pin_off(Buzzer_Pin, Pin_On)
+    #By pressing B, both A and C will be pressed. This will turn on both the LED and buzzer.
+  
+  #------------------------ NOW YOU TRY: REPLACE THE ?? WITH THE LED_Pin or Buzzer_Pin IN LINES 81-85 VARIABLES AND UNCOMMENT ----------------------
+  if read_selector_button(A_Pin) and read_selector_button(C_Pin):
+    #output_pin_on(??, Pin_Off)
+    #output_pin_off(??, Pin_On)
+    #output_pin_on(??, Pin_Off)
+    #output_pin_off(??, Pin_On)
+  #-------------------------------------- END OF EXERCISE ------------------------------------------
+    
+  # Wait 1 second to reset
+  sleep(1)
