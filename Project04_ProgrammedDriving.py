@@ -29,10 +29,11 @@ Backward_Time = 1
 Left_Turn_Time = 0.5
 Right_Turn_Time = 0.5
 Wait_Time = 1
+#-------------------------------------- END OF CHALLENGE 1 ------------------------------------------
 
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
-#Our output pins, start off
+#we need to create
 GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
@@ -40,50 +41,55 @@ GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 
 #Let's write some driving functions we can use later to program a driving path
 def drive_forward(time):
-GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
-GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
-sleep(time)
-GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
-print('forward')
-sleep(1)
+  GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
+  GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
+  sleep(time)
+  GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
+  print('forward')
+  sleep(1)
+  
 def drive_left_turn(time):
-GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
-GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
-sleep(time)
-GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
-print('left turn')
-sleep(1)
+  GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
+  GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
+  sleep(time)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
+  print('left turn')
+  sleep(1)
+  
 def drive_right_turn(time):
-GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
-GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
-sleep(time)
-GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
-print('right turn')
-sleep(1)
+  GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
+  GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
+  sleep(time)
+  GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
+  print('right turn')
+  sleep(1)
 
 # Can you finish the function by filling in the blanks for the pins and states?
 # This is a backward driving function, so both backward pins should be High then Low
 
 #------------------------ REPLACE THE ?? WITH THE CORRECT VARIABLES AND UNCOMMENT ----------------------
 def drive_backward(time):
-#GPIO.output(??, GPIO.???) #Left motor backward
-#GPIO.output(??, GPIO.???) #Right motor backward
-#sleep(time)
-#GPIO.output(??, GPIO.???) #Left motor off
-#GPIO.output(??, GPIO.???) #Right motor off
-#print('backward')
-#sleep(1)
+  #GPIO.output(??, GPIO.???) #Left motor backward
+  #GPIO.output(??, GPIO.???) #Right motor backward
+  #sleep(time)
+  #GPIO.output(??, GPIO.???) #Left motor off
+  #GPIO.output(??, GPIO.???) #Right motor off
+  #print('backward')
+  #sleep(1)
+#-------------------------------------- END OF EXERCISE ------------------------------------------
 
 #Here we can use a "for" loop to control the number of times the code is executed
 #------------------------ TRY CHANGING THE VALUE OF range() TO INCREASE THE NUMBER OF LOOPS PERFORMED ----------------------
 for n in range(1):
-# Let's use the driving functions defined above to create a driving path
-#------------------------ CHALLENGES 2 & 3: CREATE YOUR OWN CUSTOM DRIVING PATH BY REORDERING THE DIFFERENT DRIVE FUNCTIONS AND TIME VARIABLES  ----------------------
-sleep(Wait_Time)
-drive_forward(Forward_Time)
-drive_left_turn(Left_Turn_Time)
-drive_backward(Backward_Time)
-drive_right_turn(Right_Turn_Time)
+#-------------------------------------- END OF EXERCISE ------------------------------------------
+  
+  # Let's use the driving functions defined above to create a driving path
+  #------------------------ CHALLENGES 2 & 3: CREATE YOUR OWN CUSTOM DRIVING PATH BY REORDERING THE DIFFERENT DRIVE FUNCTIONS AND TIME VARIABLES  ----------------------
+  sleep(Wait_Time)
+  drive_forward(Forward_Time)
+  drive_left_turn(Left_Turn_Time)
+  drive_backward(Backward_Time)
+  drive_right_turn(Right_Turn_Time)
