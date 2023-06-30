@@ -37,18 +37,18 @@ while True: #Looping over and over again
 # Here we use the If statement which evaluates a logical expression
 # It is checking if the button is pressed by reading tha value of the pin
 # If the button pin reads True (on), then it executes the indented code
-#------------------------ CHALLENGE 4: CHANGE THE "IF" STATEMENT FROM TRUE TO FALSE ----------------------
-if GPIO.input(Button_Pin) == True: #When the button is pressed, blink LED
-#-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
-  
-  sleep(LED_Off) #Keep LED off for defined duration
-  GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
-  sleep(LED_On) #Keep LED on for defined duration
-  GPIO.output(LED_Pin, GPIO.LOW) #Turn lED off
-  # If the button is not pressed, the code will go to the else statement
-else:
-  print('Button not pressed')
-  sleep(1)
+  #------------------------ CHALLENGE 4: CHANGE THE "IF" STATEMENT FROM TRUE TO FALSE ----------------------
+  if GPIO.input(Button_Pin) == True: #When the button is pressed, blink LED
+  #-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
+    
+    sleep(LED_Off) #Keep LED off for defined duration
+    GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
+    sleep(LED_On) #Keep LED on for defined duration
+    GPIO.output(LED_Pin, GPIO.LOW) #Turn lED off
+    # If the button is not pressed, the code will go to the else statement
+  else:
+    print('Button not pressed')
+    sleep(1)
 
 
 #------------------------ CHALLENGE 2: REPLACE THE LED SNAP COMPONENT WITH THE BUZZER SNAP COMPONENT AND RUN THE PROGRAM AGAIN ----------------------
