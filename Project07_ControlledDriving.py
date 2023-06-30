@@ -51,72 +51,78 @@ GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(A_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(C_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-#Let's write some driving functions we can use later to program a pathdef drive_forward():
+#Let's write some driving functions we can use later to program a driving path
 def drive_forward(time):
-GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor fwd
-GPIO.output(Right_Forward_Pin, GPIO.HIGH) #R motor fwd
-sleep(time)
-GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor fwd
-GPIO.output(Right_Forward_Pin, GPIO.LOW) #R motor fwd
-print('fwd')
-sleep(1)
+  GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor fwd
+  GPIO.output(Right_Forward_Pin, GPIO.HIGH) #R motor fwd
+  sleep(time)
+  GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor fwd
+  GPIO.output(Right_Forward_Pin, GPIO.LOW) #R motor fwd
+  print('fwd')
+  sleep(1)
+  
 def drive_backward(time):
-GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor bkwd
-GPIO.output(Right_Backward_Pin, GPIO.HIGH) #R motor bkwd
-sleep(time)
-GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor bkwd
-GPIO.output(Right_Backward_Pin, GPIO.LOW) #R motor bkwd
-print('bkwd')
-sleep(1)
+  GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor bkwd
+  GPIO.output(Right_Backward_Pin, GPIO.HIGH) #R motor bkwd
+  sleep(time)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor bkwd
+  GPIO.output(Right_Backward_Pin, GPIO.LOW) #R motor bkwd
+  print('bkwd')
+  sleep(1)
+  
 def drive_left_turn(time):
-GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor bkwd
-GPIO.output(Right_Forward_Pin, GPIO.HIGH) #R motor fwd
-sleep(time)
-GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor bkwd
-GPIO.output(Right_Forward_Pin, GPIO.LOW) #R motor fwd
-print('left turn')
-sleep(1)
+  GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor bkwd
+  GPIO.output(Right_Forward_Pin, GPIO.HIGH) #R motor fwd
+  sleep(time)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor bkwd
+  GPIO.output(Right_Forward_Pin, GPIO.LOW) #R motor fwd
+  print('left turn')
+  sleep(1)
+  
 def drive_right_turn(time):
-GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor bkwd
-GPIO.output(Right_Backward_Pin, GPIO.HIGH) #R motor fwd
-sleep(time)
-GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor bkwd
-GPIO.output(Right_Backward_Pin, GPIO.LOW) #R motor fwd
-print('right turn')
-sleep(1)
+  GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor bkwd
+  GPIO.output(Right_Backward_Pin, GPIO.HIGH) #R motor fwd
+  sleep(time)
+  GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor bkwd
+  GPIO.output(Right_Backward_Pin, GPIO.LOW) #R motor fwd
+  print('right turn')
+  sleep(1)
 
 # Here we are creating a timer function to record the duration of the button press
 def button_press_timer():
-Start_Time = time.time() #start the timer
-while GPIO.input(Button_Pin): #while the button is pressed...
-print("Button Pressed")
-return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
+  Start_Time = time.time() #start the timer
+  while GPIO.input(Button_Pin): #while the button is pressed...
+    print("Button Pressed")
+  return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
 
 #------------------------ CHALLENGE 1: CHANGE THE DRIVE FUNCTIONS BELOW TO SWITCH THE DRIVING DIRECTIONS ----------------------
 #------------------------ CHALLENGE 2: ADD NEW DRIVE FUNCTIONS BELOW TO CHANGE THE DRIVING PATTERNS FOR EACH BUTTON PRESS ----------------------
 while True: #Looping over and over again
-sleep(0.5)
-# Only pressing A
-if GPIO.input(A_Pin) and not GPIO.input(C_Pin): #only pressing A
-
-#------------------------ CHALLENGE 3: UNCOMMENT ALL OF THE Press_Time STATEMENTS BELOW TO PLAY "SIMON SAYS" ----------------------
-#Press_Time = button_press_timer(A_Pin)
-drive_forward(Forward_Time)
-# Only pressing C
-if GPIO.input(C_Pin) and not GPIO.input(A_Pin): #only pressing C
-  
-# See how B uses a double If to see if its pressed and then released or held? 
-# Can you try something similar for A and C to create different commands there too?
-#------------------------ CHALLENGE 4: ADD A SECOND "if" STATEMENT AND SLEEP DELAY TO CHECK WHETHER C WAS PRESSED, RELEASED, OR HELD ----------------------
-
-#Press_Time = button_press_timer(C_Pin) # For challenge 3
-drive_backward(Backward_Time)
-# Pressing B, we can use timing to determine if it's released or held
-if GPIO.input(C_Pin) and GPIO.input(A_Pin):
-sleep(0.5)
-#Press B and hold, check if still pressed after delay
-if GPIO.input(C_Pin) and GPIO.input(A_Pin):
-drive_left_turn(Left_Turn_Time)
-# Press B and released, not still pressed after delay
-else:
-drive_right_turn(Right_Turn_Time)
+  sleep(0.5)
+  # Only pressing A
+  if GPIO.input(A_Pin) and not GPIO.input(C_Pin): #only pressing A
+    
+    #------------------------ CHALLENGE 3: UNCOMMENT ALL OF THE Press_Time STATEMENTS BELOW TO PLAY "SIMON SAYS" ----------------------
+    #Press_Time = button_press_timer(A_Pin)
+    drive_forward(Forward_Time)
+    
+    # Only pressing C
+  if GPIO.input(C_Pin) and not GPIO.input(A_Pin): #only pressing C
+      
+    # Can you write a double "if" statement to check whether button C was pressed, held, or released?
+    #------------------------ CHALLENGE 4: ADD A SECOND "if" STATEMENT AND SLEEP DELAY TO CHECK WHETHER C WAS PRESSED, RELEASED, OR HELD ----------------------
+    
+    #Press_Time = button_press_timer(C_Pin) # For challenge 3
+    drive_backward(Backward_Time)
+    
+    # Pressing B, we can use timing to determine if it's released or held
+  if GPIO.input(C_Pin) and GPIO.input(A_Pin):
+    sleep(0.5)
+    
+  #Press B and hold, check if still pressed after delay
+  if GPIO.input(C_Pin) and GPIO.input(A_Pin):
+    drive_left_turn(Left_Turn_Time)
+    
+  # Press B and released, not still pressed after delay
+  else:
+    drive_right_turn(Right_Turn_Time)
