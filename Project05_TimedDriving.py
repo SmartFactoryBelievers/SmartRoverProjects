@@ -42,47 +42,48 @@ GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 #Let's write some driving functions we can use later to program a pathdef drive_forward():
 #------------------------ CHALLENGE 1: CHANGE THE VALUES BELOW TO DRIVE IN NEW PATTERNS ----------------------
 def drive_forward(time):
-GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
-GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
-sleep(time)
-GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
-print('forward')
-sleep(1)
+  GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
+  GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
+  sleep(time)
+  GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
+  print('forward')
+  sleep(1)
 
 def drive_left_turn(time):
-GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
-GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
-sleep(time)
-GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
-print('left turn')
-sleep(1)
+  GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
+  GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
+  sleep(time)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Forward_Pin, GPIO.LOW) #Right motor off
+  print('left turn')
+  sleep(1)
 
 def drive_right_turn(time):
-GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
-GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
-sleep(time)
-GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
-print('right turn')
-sleep(1)
+  GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
+  GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
+  sleep(time)
+  GPIO.output(Left_Forward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
+  print('right turn')
+  sleep(1)
 
 def drive_backward(time):
-GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
-GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
-sleep(time)
-GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
-GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
-print('backward')
-sleep(1)
+  GPIO.output(Left_Backward_Pin, GPIO.HIGH) #Left motor backward
+  GPIO.output(Right_Backward_Pin, GPIO.HIGH) #Right motor backward
+  sleep(time)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW) #Left motor off
+  GPIO.output(Right_Backward_Pin, GPIO.LOW) #Right motor off
+  print('backward')
+  sleep(1)
+#-------------------------------------- END OF CHALLENGE 1 ------------------------------------------
 
 # Here we are creating a timer function to record the duration of the button press
 def button_press_timer():
-Start_Time = time.time() #start the timer
-while GPIO.input(Button_Pin): #while the button is pressed...
-print("Button Pressed")
-return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
+  Start_Time = time.time() #start the timer
+  while GPIO.input(Button_Pin): #while the button is pressed...
+    print("Button Pressed")
+  return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
 
 # We will use a dummy variable "count" to help with modulo operator
 count = 0
@@ -92,15 +93,20 @@ count = 0
 
 #------------------------ CHALLENGE 2: CHANGE THE "True' TO THE MODULO OPERATOR ----------------------
 while True: #Looping over and over again
-sleep(0.25)
-# If the button is pressed, let's use the timer function to see how long
-if GPIO.input(Button_Pin):
-Button_Time = button_press_timer()
-print('Button pressed ' + str(Button_Time) + ' seconds')
-#------------------------ CHALLENGE 3: CHANGE THE "True" TO THE MODULO OPERATOR ----------------------
-if True: 
-#------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR EVEN BUTTON PRESSES ----------------------
-drive_forward(Button_Time)
-else: 
-#------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR ODD BUTTON PRESSES ----------------------
-count = count + 1 # We increment the counter for the next button press
+#-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
+  sleep(0.25)
+  # If the button is pressed, let's use the timer function to see how long
+  if GPIO.input(Button_Pin):
+    Button_Time = button_press_timer()
+    print('Button pressed ' + str(Button_Time) + ' seconds')
+    
+  #------------------------ CHALLENGE 3: CHANGE THE "True" TO THE MODULO OPERATOR ----------------------
+  if True: 
+  #-------------------------------------- END OF CHALLENGE 3 ------------------------------------------
+
+    #------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR EVEN BUTTON PRESSES ----------------------
+    drive_forward(Button_Time)
+    
+  else: 
+    #------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR ODD BUTTON PRESSES ----------------------
+    count = count + 1 # We increment the counter for the next button press
