@@ -1,4 +1,7 @@
-# 
+# Happy STEM Day! Copy this code into a new file in Thonny editor on the Smart Rover and
+# run the file to blink a message in Morse Code. Try swapping the LED component with the horn!
+
+#How-to: after running the file, type your message in the Thonny shell below and click "enter"
 
 from time import sleep
 import RPi.GPIO as GPIO
