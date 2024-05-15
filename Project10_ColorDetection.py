@@ -1,21 +1,10 @@
-# Project 10
-# Using the Pi camera to capture and analyze the color profile of objects
-# Build the Project 10 circuit and indicate the color of objects with LED and buzzer
+############################################################################################
+# Project 10                                                                               #
+# Goal: Use the Pi camera to capture and analyze the color profile of objects              #
+# Task: Build the Project 10 circuit and indicate the color of objects with LED and buzzer #
+############################################################################################
 
-#Challenge 1
-# Try swapping the LED and buzzer outputs in the code and then also on the rover
-
-#Challenge 2
-# Try writing a function to handle the LED and buzzer so it can be called after each color
-
-#Challege 3
-# Try adding a margin that the argmax for Color must exceed to be considered a certain color
-
-#Challege 4
-# Try adding a memory variable for the last color identified and activate flashes and buzzes
-# a new LED or buzzer output based on the pattern, like Red then Green
-
-#Importing libraries
+# Step 1: Importing libraries
 # Here we want sleep for timing, GPIO for the Pi's pins, & picamera for the Pi's camera
 from time import sleep
 import RPi.GPIO as GPIO
@@ -131,3 +120,17 @@ while True:
     #------------------------ CHALLENGE 4: UNCOMMENT THE LINE BELOW TO UPDATE THE LAST COLOR ----------------------
     #Last_Color = Color
     print('Ready to take photo')
+
+    
+#Challenge 1
+# Try swapping the LED and buzzer outputs in the code and then also on the rover
+
+#Challenge 2
+# Try writing a function to handle the LED and buzzer so it can be called after each color
+
+#Challege 3
+# Try adding a margin that the argmax for Color must exceed to be considered a certain color
+
+#Challege 4
+# Try adding a memory variable for the last color identified and activate flashes and buzzes
+# a new LED or buzzer output based on the pattern, like Red then Green
