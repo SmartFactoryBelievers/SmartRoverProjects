@@ -48,7 +48,7 @@ Light_Max = np.array([180,255,255], np.uint8)
 Light_Threshold = 40
 #-------------------------------------- END OF CHALLENGE 1 & 2 --------------------------------------------------------------------------
 
-# Step 5: Functions
+# Step 5: Main Code Body
 i=0 #Loop Counter variable, used to settle the camera with ambient light
 
 # Using the video camera feature of the camera through an image capture for loop
