@@ -4,7 +4,7 @@
 # Task: Build the Project 10 circuit and indicate the color of objects with LED and buzzer #
 ############################################################################################
 
-# Step 1: Importing libraries
+# Step 1: Importing Libraries
 # Here we want sleep for timing, GPIO for the Pi's pins, & picamera for the Pi's camera
 from time import sleep
 import RPi.GPIO as GPIO
@@ -12,14 +12,14 @@ from picamera import PiCamera
 # Numpy is a great numerical tools package to help with the math required
 import numpy as np
 
-#Let's define variables so we can use them later
+# Step 2: Defining Variables
 #------------------------ CHALLENGE 1: SWAP THE POSITION OF THE LED AND BUZZER IN THE CODE & ON THE ROVER ----------------------
 LED_Pin = 21 #the internal Pi pin number that goes to snap 4
 Buzzer_Pin = 26 #the internal Pi pin number that goes to snap 3
 Button_Pin = 18 #the internal Pi pin number that goes to snap 6
 #-------------------------------------- END OF CHALLENGE 1 ------------------------------------------
 
-#Setting up our pins
+# Step 3: Raspberry Pi Set Up
 GPIO.setmode(GPIO.BOARD)
 #Our output pins, start off
 GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)
@@ -27,7 +27,7 @@ GPIO.setup(Buzzer_Pin, GPIO.OUT, initial=GPIO.LOW)
 #Our input pins, start down
 GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-# Setting up camera for analysis and to emphasize colors
+# Step 4: Setting Up the Camera for Analysis and to Emphasize Colors
 camera = PiCamera()
 camera.resolution = (640, 480)
 camera.framerate = 30
@@ -42,6 +42,7 @@ camera.awb_gains = gain_set
 # Prepping for image analysis and eliminating background Noise
 #Images are stored in a 3D array with each pixel having Red, Green, and Blue values
 Image = np.empty((640,480,3),dtype=np.uint8)
+#
 Noise = np.empty((640,480,3),dtype=np.uint8)
 RGB_Text = ['Red','Green','Blue'] #Array for naming color
 # Let's remove the background 'Noise' colors to emphasis the object's color
