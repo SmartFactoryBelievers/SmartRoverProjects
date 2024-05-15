@@ -69,11 +69,7 @@ def drive_backward(time):
   print('backward')
   sleep(1)
 
-# For challenge 2, we will use a dummy variable to help with modulo operator
-count = 0
-# Replace the True with the modulo operator statement as %, which means remainder in division
-# So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
-# To use this as a logical, let's try count % 2 == 0
+count = 0 # For challenge 2, we will use a dummy variable to help with modulo operator
 
 # For challenge 3, we will set the variable color intensity to scale the drive times
 # First, let's define it so we can use the code as is
@@ -117,31 +113,40 @@ while True:
       Color = RGB_Text[np.argmax(RGB_Array)]
       print(Color)
 
+    #------------------------ CHALLENGE 3: REPLACE "?" WITH THE CORRECT VARIABLES AND UNCOMMENT THE LINE BELOW -----------------------------
     # For challenge 3, let's compare the most prominent color to the second most
     # We can use this ratio to set the Color_Intensity variable
     # with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
     # However, the color channels can be negative, so let's use a max to keep positive
-    #------------------------ CHALLENGE 3: REPLACE "?" WITH THE CORRECT VARIABLES AND UNCOMMENT THE LINE BELOW ----------------------
     #Color_Intensity = np.max([? / ?, 2])
+    #----------------------------------------------------------- END OF CHALLENGE 3 ---------------------------------------------------------
     
-    # For challenge 4, let's look for a pattern like Red then Color
+    #--------------------------------------------- CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT ------------------------------------
+    # For challenge 4, let's look for a pattern like Red followed by another color
     # We can use an if statement to see if the Last_Color was Red
     # Replace this True with a logical to check, remember it's ==, not = here
-    #------------------------ CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT ----------------------
+    # HINT: This challenge is similar to a challenge in Project 10
+    # HINT: You will need to update Last_Color after each output
+    # HINT: Be sure to uncomment Last_Color before attempting Challenge 4
+   
     if True:
     # Activate motor controller outputs based on the determined object color
-    #------------------------ CHALLENGE 1: CHANGE THE COLORS ASSOCIATED WITH EACH DRIVING COMMAND ----------------------
+    #----------------------------------- CHALLENGE 1: CHANGE THE COLORS ASSOCIATED WITH EACH DRIVING COMMAND -------------------------------
       if Color == 'Red': #Backward for Red object
         drive_backward(Backward_Time * Color_Intensity)
         sleep(Wait_Time)
-        
+     
       if Color == 'Green': #Forward for Green object
         drive_forward(Forward_Time * Color_Intensity)
         sleep(Wait_Time)
         
       if Color == 'Blue': #Turn for Blue object
-    
-        #------------------------ CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ----------------------
+     #-------------------------------------------------- END OF CHALLENGE 1 ---------------------------------------------------------------- 
+        
+     #---------------------------------- CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ----------------------------------------------
+        # Replace the True with the modulo operator statement as %, which means remainder in division
+        # So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
+        # To use this as a logical, let's try count % 2 == 0
         if True: # Try changing the True to the modulo for challenge 2
           drive_left_turn(Left_Turn_Time * Color_Intensity)
           
@@ -149,11 +154,11 @@ while True:
           drive_right_turn(Right_Turn_Time * Color_Intensity)
           sleep(Wait_Time)
           count = count + 1 # Increment the counter for the modulo
-    
-      # For challenge 4, update Last_Color after outputs
+    #---------------------------------------------------- END OF CHALLENGE 2 ----------------------------------------------
+      
       #Last_Color = Color
       print('Ready to take photo')
-
+ #------------------------------------------------------- END OF CHALLENGE 4 ---------------------------------------------------------
       
 #Challenge 1
 # Try changing the colors associated with the driving commands, like flipping red and green
