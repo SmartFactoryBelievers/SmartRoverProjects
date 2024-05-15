@@ -51,6 +51,7 @@ camera.stop_preview() #turn camera off
 # Demo 2
 camera.start_preview() #turn camera on
 for i in range(100):
+  
   #------------------------ CHALLENGE 5: CHANGE THE VARIABLE TO ITERATE THROUGH BRIGHTNESS INSTEAD OF CONTRAST ------------------
   camera.contrast = i
   #-------------------------------------- END OF CHALLENGE 5 -------------------------------------------------------------------
@@ -70,3 +71,25 @@ for effect in camera.IMAGE_EFFECTS:
   sleep(1)
 camera.stop_preview() #turn camera off
 camera.close() #close the camera
+
+
+#Challenge 1
+# Try changing the camera resolution to the minimum with 64, 64 and see how it looks
+
+#Challenge 2
+# Try changing the camera resolution the maximum with 2592, 1944 and
+# the framerate to 15 and see how it looks
+
+#Challege 3
+# Try changing the camera rotation to flip it upside down (0) or left or right (90, 270)
+
+#Challenge 4
+# Try adding a text on top of the image and changing the colors and size
+
+#Challenge 5
+# Try looping through all the contrast and brightness options
+# and annotate the image with their current levels
+
+#Challenge 6
+# Try looping through all the IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES options
+# and annotate the image with their current levels
