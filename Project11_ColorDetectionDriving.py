@@ -1,21 +1,10 @@
-# Project 11
-# Using the Pi camera to capture and analyze the color profile of objects
-# Build the Project 11 circuit and drive the rover according to colored signs
+########################################################################################
+# Project 11                                                                           #
+# Goal: Use the Pi camera to capture and analyze the color profile of objects          #
+# Task: Build the Project 11 circuit and drive the rover according to colored signs    #
+########################################################################################
 
-#Challenge 1
-# Try changing the colors associated with the driving commands, like flipping red and green
-
-#Challenge 2
-# Try adding a modulo operator to alternate between left and right turns on blue signs
-
-#Challege 3
-# Try setting the drive time variables based on the promince of the color from the argmax
-
-#Challenge 4
-# Try adding a memory variable for the last color identified and dictate driving
-# based on the pattern, like Red then Green
-
-#Importing libraries
+# Step 1: Importing libraries
 # Here we want sleep for timing, GPIO for the Pi's pins, & picamera for the Pi's camera
 from time import sleep
 import RPi.GPIO as GPIO
@@ -23,7 +12,7 @@ from picamera import PiCamera
 # Numpy is a great numerical tools package to help with the math required
 import numpy as np
 
-#Let's define variables so we can use them later
+# Step 2: Variables
 Left_Forward_Pin = 35 #the internal Pi pin number that goes to snap 1
 Left_Backward_Pin = 31 #the internal Pi pin number that goes to snap 2
 Right_Forward_Pin = 26 #the internal Pi pin number that goes to snap 3
@@ -35,7 +24,8 @@ Backward_Time = 1
 Left_Turn_Time = 0.5
 Right_Turn_Time = 0.5
 Wait_Time = 1
-#Setting up our pins
+
+# Step 3: Raspberry Pi Set Up
 GPIO.setmode(GPIO.BOARD)
 #Our output pins, start off
 GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
@@ -45,7 +35,7 @@ GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 #Our input pins, start down
 GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-#Let's write some driving functions we can use later
+# Step 4: Functions
 def drive_forward(time):
   GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
   GPIO.output(Right_Forward_Pin, GPIO.HIGH) #Right motor forward
@@ -89,7 +79,7 @@ count = 0
 # First, let's define it so we can use the code as is
 Color_Intensity = 1
 
-# Setting up camera for analysis and to emphasize colors
+# Step 5: Setting Up the Camera for Analysis and to Emphasize Colors
 camera = PiCamera()
 camera.resolution = (640, 480)
 camera.framerate = 30
@@ -109,6 +99,7 @@ RGB_Text = ['Red','Green','Blue'] #Array for naming color
 # Let's remove the background 'Noise' colors to emphasis the object's color
 camera.capture(Noise,'rgb')
 Noise = Noise-np.mean(Noise)
+
 
 #Looping with different images to determine object colors
 print('Ready to take photo')
@@ -162,3 +153,17 @@ while True:
       # For challenge 4, update Last_Color after outputs
       #Last_Color = Color
       print('Ready to take photo')
+
+      
+#Challenge 1
+# Try changing the colors associated with the driving commands, like flipping red and green
+
+#Challenge 2
+# Try adding a modulo operator to alternate between left and right turns on blue signs
+
+#Challege 3
+# Try setting the drive time variables based on the promince of the color from the argmax
+
+#Challenge 4
+# Try adding a memory variable for the last color identified and dictate driving
+# based on the pattern, like Red then Green
