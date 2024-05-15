@@ -37,9 +37,9 @@ rawCapture = PiRGBArray(camera, size=(640, 480))
 # Hue goes from 0 to 180, while Saturation and Value go from 0 to 255
 
 Light_Min = np.array([0,50,155], np.uint8)
-  # array refers to a data structure that contains multiple elements, three in this case 
+# array refers to a data structure that contains multiple elements, three in this case 
 Light_Max = np.array([180,255,255], np.uint8) 
-  # uint8 is a data value and assigns a maximum value of 255 to the values within the brackets
+# uint8 is a data value and assigns a maximum value of 255 to the values within the brackets
 
 # Setting up the ambient light percentage threshold for turning the LED - minimum light to trigger LED
 
@@ -54,7 +54,7 @@ i=0 #Loop Counter variable, used to settle the camera with ambient light
 # Using the video camera feature of the camera through an image capture for loop
 # Within camera.capture_continuous, the output is defined first, followed by the format and the video port
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
-  # Capturing an image from the camera and converting it to HSV format
+# Capturing an image from the camera and converting it to HSV format
   sleep(3)
   image = frame.array
   hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
