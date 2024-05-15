@@ -13,11 +13,11 @@ from picamera import PiCamera
 import numpy as np
 
 # Step 2: Defining Variables
-#------------------------ CHALLENGE 1: SWAP THE POSITION OF THE LED AND BUZZER IN THE CODE & ON THE ROVER ----------------------
+#----------------------------------- CHALLENGE 1: SWAP THE POSITION OF THE LED AND BUZZER IN THE CODE & ON THE ROVER ---------------------------
 LED_Pin = 21 #the internal Pi pin number that goes to snap 4
 Buzzer_Pin = 26 #the internal Pi pin number that goes to snap 3
 Button_Pin = 18 #the internal Pi pin number that goes to snap 6
-#-------------------------------------- END OF CHALLENGE 1 ------------------------------------------
+#--------------------------------------------------------------- END OF CHALLENGE 1 ------------------------------------------------------------
 
 # Step 3: Raspberry Pi Set Up
 GPIO.setmode(GPIO.BOARD)
@@ -42,33 +42,25 @@ camera.awb_gains = gain_set
 # Prepping for image analysis and eliminating background Noise
 #Images are stored in a 3D array with each pixel having Red, Green, and Blue values
 Image = np.empty((640,480,3),dtype=np.uint8)
-#
+# Think of this as an image that is 640 by 480 pixels, but it is 3 pixels "thick" and each pixel can be at a certain depth
+# Where the pixel is in the thickness determines its color
+
 Noise = np.empty((640,480,3),dtype=np.uint8)
 RGB_Text = ['Red','Green','Blue'] #Array for naming color
 # Let's remove the background 'Noise' colors to emphasis the object's color
 camera.capture(Noise,'rgb')
 Noise = Noise-np.mean(Noise)
 
+#------------------------ CHALLENGE 2: UNCOMMENT THE LINES AND REPLACE THE ?? WITHT THE CORRECT VARIABLES ---------------------------------------
 # For challenge 2, let's create a function like we've done before for outputs
 # It should have output_pin and delay time arguments to turn them High and then Low
-# Don't forget to add your funtion in the "While True" code block below!
-#------------------------ CHALLENGE 2: UNCOMMENT THE LINES AND REPLACE THE ?? WITHT THE CORRECT VARIABLES ----------------------
+# Don't forget to add your function in the "While True" code block below!
 #def your_function(??, ???):
   # sleep(???)
   # GPIO.output(??, GPIO.?)
   # sleep(???)
   # GPIO.output(??, GPIO.?)
-#-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
-
-# For challenge 3, let's set a threshold the max color must exceed
-# This will help the camera avoid mistakes in bad lighting or glare
-Col_Margin = 0.8
-# Let's check if the max * margin > mid with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
-# HINT: YOU SHOULD MAKE 2 NEW VARIABLES, Col_Max and Col_Mid
-
-#------------------------ CHALLENGE 3: WRITE A LOGICAL STATEMENT FOR MAX COLOR THRESHOLD BELOW ----------------------
-
-
+#-------------------------------------- END OF CHALLENGE 2 --------------------------------------------------------------------------------------
 
 #Looping with different images to determine object colors upon button press
 print('Ready to take photo')
@@ -83,20 +75,27 @@ while True:
     # For each of red, green, and blue, calculate the most prominent color through means
     for col in range(0,3):
       RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))
-      
-    # For challenge 3, replace the True with the logical statement for the margin that the argmax for Color must exceed to be considered a certain color
-    #------------------------ CHALLENGE 3: REPLACE "True" WITH YOUR LOGICAL STATEMENT ----------------------
+    
+    #------------- CHALLENGE 3: REPLACE "True" WITH A LOGICAL STATEMENT THAT SETS A THRESHOLD THE MAX COLOR MUST EXCEED ----------------------   
+    # For challenge 3, let's set a threshold the max color must exceed
+    # This will help the camera avoid mistakes in bad lighting or glare
+    Col_Margin = 0.8
+    # Let's check if the max * margin > mid with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
+    # HINT: YOU SHOULD MAKE 2 NEW VARIABLES, Col_Max and Col_Mid
     if True:
       Color = RGB_Text[np.argmax(RGB_Array)]
       print(Color)
     
     else:
       print('No prominent color found')
+    #------------------------------------------ END OF CHALLENGE 3 ----------------------------------------------------------------------------
     
-    # For challenge 4, let's look for a pattern like Red then Color
-    #------------------------ CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT TO CHECK THE Last_Color ----------------------
+    #------------------------ CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT TO CHECK THE Last_Color ------------------------------------
+    # For challenge 4, let's look for a pattern in the colors that are identified
+    # HINT: Uncomment Last_Color before testing
     # HINT: We can use an if statement to see if the Last_Color was Red
-    # Replace this True with a logical to check, remember it's ==, not = here
+    # HINT: Make sure Last_Color updates after each output
+    # Replace this True with a logical statement to check, remember it's ==, not = here
     if True:
       
       # Activate outputs based on the determined object color
@@ -116,12 +115,10 @@ while True:
         sleep(2)
         GPIO.output(LED_Pin, GPIO.LOW) #LED off
         GPIO.output(Buzzer_Pin, GPIO.LOW) #Buzzer off
-    
-    # For challenge 4, update Last_Color after outputs
-    #------------------------ CHALLENGE 4: UNCOMMENT THE LINE BELOW TO UPDATE THE LAST COLOR ----------------------
+        
     #Last_Color = Color
     print('Ready to take photo')
-
+ #------------------------------------------------- END OF CHALLENGE 4 ---------------------------------------------------------------------------------------------------------
     
 #Challenge 1
 # Try swapping the LED and buzzer outputs in the code and then also on the rover
