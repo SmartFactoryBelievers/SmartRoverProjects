@@ -1,8 +1,9 @@
-# Project 9
-# Using the Pi camera to capture and analyze the surrounding light levels
-# Build the the Project 9 circuit and flash the LED when certain light thresholds are exceeded
-# Point a flashlight at the camera to activate the LED
-
+##########################################################################################################
+# Project 9                                                                                              #
+# Goal: Learn more about programming the Pi camera to capture and analyze the surrounding light levels   #
+# Task: Build the the Project 9 circuit and flash the LED when certain light thresholds are exceeded     #
+#       Point a flashlight at the camera to activate the LED                                             #
+##########################################################################################################
 #Challenge 1
 # Try changing the Light Threshold value to keep the LED always on
 
@@ -15,7 +16,7 @@
 #Challege 4
 # Can you swap out the Max and Min Light thresholds to activate the LED in darkness?
 
-#Importing libraries
+# Step 1: Importing libraries
 # Here we want sleep for timing, GPIO for the Pi's pins, & picamera for the Pi's camera
 from time import sleep
 import RPi.GPIO as GPIO
@@ -26,11 +27,11 @@ import cv2
 # Numpy is a great numerical tools package to help with the math required
 import numpy as np
 
-#Let's define variables so we can use them later
+# Step 2: Variables
 LED_Pin = 21 #the internal Pi pin number that goes to snap 4
 Buzzer_Pin = 26 #the internal Pi pin number that goes to snap 3
 
-#Setting up our pins
+# Step 3: Raspberry Pi Set Up
 GPIO.setmode(GPIO.BOARD)
 #Our output pins, start off
 GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)
