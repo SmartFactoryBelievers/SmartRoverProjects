@@ -9,9 +9,10 @@ from picamera import PiCamera, Color
 from time import sleep
 # Here we want sleep for timing and picamera for the Pi's camera
 
-# Step 2: Setting up the camera
+# Step 2: Variables 
 camera = PiCamera() 
 
+# Step 3: Setting up the camera 
 # Change the number of pixels and clarity of the camera
 #------------------------ CHALLENGE 1: CHANGE THE RESOLUTION TO THE MINIMUM (64, 64) -------------------------------------------
 camera.resolution = (640, 480)
@@ -41,7 +42,8 @@ camera.contrast = 75
 # Change the brightness of the image between 0 and 100
 camera.brightness = 75
 
-# Step 3: Start the preview to view the camera image stream and automatically run through three demos back-to-back
+# Step 4: Functions
+# Start the preview to view the camera image stream and automatically run through three demos back-to-back
 
 # Demo 1
 camera.start_preview() #turn camera on 
