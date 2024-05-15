@@ -1,6 +1,8 @@
+###################################################################################
 # Project 8
 # GOAL: Trying out the Pi Camera and learning about the different image settings
 # TASK: Build the Project 8 circuit and experiment with the camera in cool ways
+####################################################################################
 
 #Challenge 1
 # Try changing the camera resolution to the minimum with 64, 64 and see how it looks
