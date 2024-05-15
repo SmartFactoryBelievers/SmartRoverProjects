@@ -100,7 +100,7 @@ RGB_Text = ['Red','Green','Blue'] #Array for naming color
 camera.capture(Noise,'rgb')
 Noise = Noise-np.mean(Noise)
 
-
+# Step 6: Main Code Body
 #Looping with different images to determine object colors
 print('Ready to take photo')
 while True:
