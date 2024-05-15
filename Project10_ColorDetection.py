@@ -62,6 +62,7 @@ Noise = Noise-np.mean(Noise)
   # GPIO.output(??, GPIO.?)
 #-------------------------------------- END OF CHALLENGE 2 --------------------------------------------------------------------------------------
 
+# Step 5: Functions
 #Looping with different images to determine object colors upon button press
 print('Ready to take photo')
 while True:
