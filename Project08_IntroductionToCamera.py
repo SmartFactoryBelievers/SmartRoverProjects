@@ -42,7 +42,7 @@ camera.contrast = 75
 # Change the brightness of the image between 0 and 100
 camera.brightness = 75
 
-# Step 4: Functions
+# Step 4: Main Code Body
 # Start the preview to view the camera image stream and automatically run through three demos back-to-back
 
 # Demo 1
@@ -62,7 +62,7 @@ for i in range(100):
   sleep(0.1)
 camera.stop_preview() #turn camera off
 
-#Demo 3
+# Demo 3
 #------------------ CHALLENGE 6: CHANGE THE "for" STATEMENT TO ITERATE THROUGH IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES -----
 camera.start_preview() #turn camera on
 for effect in camera.IMAGE_EFFECTS:
