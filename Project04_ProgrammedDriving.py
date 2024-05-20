@@ -81,29 +81,32 @@ def drive_backward(time):
 
 #Here we use a "for" loop to control the number of times the code is executed.
 #------- NOW YOU TRY: CHANGE THE VALUE IN range() TO INCREASE THE NUMBER OF LOOPS PERFORMED ------
-for n in range(1):
-  # Let's use the driving functions defined above to create a driving path
-  sleep(Wait_Time)
-  drive_forward(Forward_Time)
-  drive_left_turn(Left_Turn_Time)
-  drive_backward(Backward_Time)
-  drive_right_turn(Right_Turn_Time)
+try:
+  for n in range(1):
+    # Let's use the driving functions defined above to create a driving path
+    sleep(Wait_Time)
+    drive_forward(Forward_Time)
+    drive_left_turn(Left_Turn_Time)
+    drive_backward(Backward_Time)
+    drive_right_turn(Right_Turn_Time)
 
   #---------- CHALLENGE 2: REORDER THE DRIVE FUNCTIONS TO MAKE A NEW DRIVING PATH  ---------------
   #-- CHALLENGE 3: USE DIFFERENT DRIVE FUNCTIONS AND TIME ARGUMENTS TO MAKE A NEW DRIVING PATH  --
+except Exception as error:
+  print(error)
+finally:
+  # Step 6: Clean-up
+  #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
+  #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
 
-# Step 6: Clean-up
-#   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
-#   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
+  # Set each pin to LOW.
+  GPIO.output(Left_Forward_Pin, GPIO.LOW)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW)
+  GPIO.output(Right_Forward_Pin, GPIO.LOW)
+  GPIO.output(Right_Backward_Pin, GPIO.LOW)
 
-# Set each pin to LOW.
-GPIO.output(Left_Forward_Pin, GPIO.LOW)
-GPIO.output(Left_Backward_Pin, GPIO.LOW)
-GPIO.output(Right_Forward_Pin, GPIO.LOW)
-GPIO.output(Right_Backward_Pin, GPIO.LOW)
-
-# Clean up everything.
-GPIO.cleanup()
+  # Clean up everything.
+  GPIO.cleanup()
 
 ##############
 # Challenges #

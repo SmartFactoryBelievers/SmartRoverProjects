@@ -24,29 +24,33 @@ GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW) # This line says we want to use 
 GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # This line says we want to use the Button_Pin (in this case, 18) and start with the button not pressed.
 
 # Step 4: Main program
-while True: # Loop over and over again
+try:
+  while True: # Loop over and over again
 
-  # Below is an "If statement", which lets our code do different things depending on a "condition".
-  # It is checking if the button is pressed by reading the value of the pin.
-  # If the button is pressed, the button pin reads True (on) and we execute the indented code under "if".
-  # Otherwise, we instead execute the indented code under "else".
+    # Below is an "If statement", which lets our code do different things depending on a "condition".
+    # It is checking if the button is pressed by reading the value of the pin.
+    # If the button is pressed, the button pin reads True (on) and we execute the indented code under "if".
+    # Otherwise, we instead execute the indented code under "else".
 
-  #------------------------ CHALLENGE 4: CHANGE THE "IF" STATEMENT FROM TRUE TO FALSE ----------------------
-  if GPIO.input(Button_Pin) == True: # When the button is pressed, blink LED (the code below)
-  #-------------------------------------- END OF CHALLENGE 4 ------------------------------------------
-    
-    sleep(LED_Off) # Pause the program for the defined duration, keeping the LED off 
+    #------------------------ CHALLENGE 4: CHANGE THE "IF" STATEMENT FROM TRUE TO FALSE ----------------------
+    if GPIO.input(Button_Pin) == True: # When the button is pressed, blink LED (the code below)
+    #-------------------------------------- END OF CHALLENGE 4 ------------------------------------------
+      
+      sleep(LED_Off) # Pause the program for the defined duration, keeping the LED off 
 
-    GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
-    sleep(LED_On) #Pause the program for the defined duration, keeping the LED on 
+      GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
+      sleep(LED_On) #Pause the program for the defined duration, keeping the LED on 
 
-    GPIO.output(LED_Pin, GPIO.LOW) #Turn LED off
+      GPIO.output(LED_Pin, GPIO.LOW) #Turn LED off
 
-  # If the button is not pressed, the code will go to the else statement.
-  else:
-    print('Button not pressed')
-    sleep(1) # Pause the program for 1 second.
-
+    # If the button is not pressed, the code will go to the else statement.
+    else:
+      print('Button not pressed')
+      sleep(1) # Pause the program for 1 second.
+except Exception as error:
+    print(error)
+finally:
+    GPIO.cleanup()
 
 ##############
 # Challenges #

@@ -31,15 +31,21 @@ GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW) # This line says we want to use 
 
 # Step 4: Main program
 #   - This is where we'll do the main steps of our program.
-while True: # This line says we'll loop over and over again, until we end the program.
-    sleep(LED_Off) # Pause the program for the defined duration, keeping the LED off 
 
-    GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
-    sleep(LED_On) #Pause the program for the defined duration, keeping the LED on 
+try:
+    while True: # This line says we'll loop over and over again, until we end the program.
+        sleep(LED_Off) # Pause the program for the defined duration, keeping the LED off 
 
-    GPIO.output(LED_Pin, GPIO.LOW) #Turn LED off
+        GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
+        sleep(LED_On) #Pause the program for the defined duration, keeping the LED on 
 
-    # NOTE: We'll repeat the four lines above, in the while True, over and over again. This is an easy way to code our program to keep running!
+        GPIO.output(LED_Pin, GPIO.LOW) #Turn LED off
+
+        # NOTE: We'll repeat the four lines above, in the while True, over and over again. This is an easy way to code our program to keep running!
+except Exception as error:
+    print(error)
+finally:
+    GPIO.cleanup()
 
 
 ##############

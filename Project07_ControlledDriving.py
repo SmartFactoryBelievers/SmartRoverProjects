@@ -95,34 +95,50 @@ def button_press_timer():
     print("Button Pressed")
   return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
 
-#------------------------ CHALLENGE 1: CHANGE THE DRIVE FUNCTIONS BELOW TO SWITCH THE DRIVING DIRECTIONS ----------------------
-#------------------------ CHALLENGE 2: ADD NEW DRIVE FUNCTIONS BELOW TO CHANGE THE DRIVING PATTERNS FOR EACH BUTTON PRESS ----------------------
-while True: #Looping over and over again
-  sleep(0.5)
-  # Only pressing A
-  if GPIO.input(A_Pin) and not GPIO.input(C_Pin): #only pressing A
-    
-    #------------------------ CHALLENGE 3: UNCOMMENT ALL OF THE Press_Time STATEMENTS BELOW TO PLAY "SIMON SAYS" ----------------------
-    #Press_Time = button_press_timer(A_Pin)
-    drive_forward(Forward_Time)
-    
-    # Only pressing C
-  if GPIO.input(C_Pin) and not GPIO.input(A_Pin): #only pressing C
-      
-    # Can you write a double "if" statement to check whether button C was pressed, held, or released?
-    #------------------------ CHALLENGE 4: ADD A SECOND "if" STATEMENT AND SLEEP DELAY TO CHECK WHETHER C WAS PRESSED, RELEASED, OR HELD ----------------------
-    
-    #Press_Time = button_press_timer(C_Pin) # For challenge 3
-    drive_backward(Backward_Time)
-    
-    # Pressing B, we can use timing to determine if it's released or held
-  if GPIO.input(C_Pin) and GPIO.input(A_Pin):
+try:
+  #------------------------ CHALLENGE 1: CHANGE THE DRIVE FUNCTIONS BELOW TO SWITCH THE DRIVING DIRECTIONS ----------------------
+  #------------------------ CHALLENGE 2: ADD NEW DRIVE FUNCTIONS BELOW TO CHANGE THE DRIVING PATTERNS FOR EACH BUTTON PRESS ----------------------
+  while True: #Looping over and over again
     sleep(0.5)
-    
-  #Press B and hold, check if still pressed after delay
-  if GPIO.input(C_Pin) and GPIO.input(A_Pin):
-    drive_left_turn(Left_Turn_Time)
-    
-  # Press B and released, not still pressed after delay
-  else:
-    drive_right_turn(Right_Turn_Time)
+    # Only pressing A
+    if GPIO.input(A_Pin) and not GPIO.input(C_Pin): #only pressing A
+      
+      #------------------------ CHALLENGE 3: UNCOMMENT ALL OF THE Press_Time STATEMENTS BELOW TO PLAY "SIMON SAYS" ----------------------
+      #Press_Time = button_press_timer(A_Pin)
+      drive_forward(Forward_Time)
+      
+      # Only pressing C
+    if GPIO.input(C_Pin) and not GPIO.input(A_Pin): #only pressing C
+        
+      # Can you write a double "if" statement to check whether button C was pressed, held, or released?
+      #------------------------ CHALLENGE 4: ADD A SECOND "if" STATEMENT AND SLEEP DELAY TO CHECK WHETHER C WAS PRESSED, RELEASED, OR HELD ----------------------
+      
+      #Press_Time = button_press_timer(C_Pin) # For challenge 3
+      drive_backward(Backward_Time)
+      
+      # Pressing B, we can use timing to determine if it's released or held
+    if GPIO.input(C_Pin) and GPIO.input(A_Pin):
+      sleep(0.5)
+      
+    #Press B and hold, check if still pressed after delay
+    if GPIO.input(C_Pin) and GPIO.input(A_Pin):
+      drive_left_turn(Left_Turn_Time)
+      
+    # Press B and released, not still pressed after delay
+    else:
+      drive_right_turn(Right_Turn_Time)
+except Exception as error:
+  print(error)
+finally:
+  # Step 6: Clean-up
+  #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
+  #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
+
+  # Set each pin to LOW.
+  GPIO.output(Left_Forward_Pin, GPIO.LOW)
+  GPIO.output(Left_Backward_Pin, GPIO.LOW)
+  GPIO.output(Right_Forward_Pin, GPIO.LOW)
+  GPIO.output(Right_Backward_Pin, GPIO.LOW)
+
+  # Clean up everything.
+  GPIO.cleanup()
