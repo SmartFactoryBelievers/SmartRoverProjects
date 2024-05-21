@@ -7,7 +7,8 @@
 # Step 1: Importing Libraries
 from time import sleep
 import RPi.GPIO as GPIO
-# A new import: we will use the time library for the timer function(s).
+# A new import: we will use the time library for the timer function(s). This is the same library that we imported sleep from.
+# Sleep is one of the functions inside time, but there are other functions that we can use - like timer.
 import time
 
 # Step 2: Variables
@@ -18,6 +19,7 @@ Right_Backward_Pin = 21 # The internal Pi pin number that goes to snap 4
 Button_Pin = 18 # The internal Pi pin number that goes to snap 6
 
 # Step 3: Raspberry Pi Setup
+# GPIO.setmode can configure the pi board in several ways, and GPIO.BOARD is one of those formats
 GPIO.setmode(GPIO.BOARD)
 
 # Our motor output pins, start off.
@@ -80,13 +82,13 @@ def button_press_timer():
   return round(time.time() - Start_Time,2) # Stop the timer and return the elapsed time
 
 
-# TODO: I don't know that the functionality as describe below makes sense. Come back to it when I'm able to test it?
-
 # We will use a dummy variable "count" to help with modulo operator
+# Modulo outputs the remainder of a division problem
 count = 0
 # Replace the True with the modulo operator statement as %, which means remainder in division
 # So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
 # To use this as a logical, let's try count % 2 == 0
+# This will divide the value of count by 2 and output the remainder, which will then be compared to 0
 
 try:
   #------------------------ CHALLENGE 2: CHANGE THE "True' TO THE MODULO OPERATOR ----------------------
@@ -99,22 +101,22 @@ try:
       print('Button pressed ' + str(Button_Time) + ' seconds')
       
     #------------------------ CHALLENGE 3: CHANGE THE "True" TO THE MODULO OPERATOR ----------------------
-    if True: 
+      if True: 
     #-------------------------------------- END OF CHALLENGE 3 ------------------------------------------
 
       #------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR EVEN BUTTON PRESSES ----------------------
-      drive_forward(Button_Time)
+        drive_forward(Button_Time)
       
-    else: 
+      else: 
       #------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR ODD BUTTON PRESSES ----------------------
-      count = count + 1 # We increment the counter for the next button press
-except Exception as error:
-  print(error)
+        count = count + 1 # We increment the counter for the next button press
+except KeyboardInterrupt:
+  print("Program Successfully Interrupted")
 finally:
   # Step 6: Clean-up
   #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
   #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
-
+  print("Cleaning Up")
   # Set each pin to LOW.
   GPIO.output(Left_Forward_Pin, GPIO.LOW)
   GPIO.output(Left_Backward_Pin, GPIO.LOW)
