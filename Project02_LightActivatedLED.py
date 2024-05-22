@@ -49,12 +49,15 @@ try:
       print('Button not pressed')
       sleep(1) # Pause the program for 1 second.
 
+#   - If ctrl+C is pressed, it triggers a keyboard interrupt that exits out of the program. The except portion of the code triggers when a Keyboard Interrupt is detected
 except KeyboardInterrupt:
   print("Program Successfully Interrupted")
+  
+#   - After the except section runs, the finally section is triggered. Think of it as the code will be tried over and over until it runs, unless a certain exception occurs, then finally occurs.
 finally:
-  GPIO.output(LED_Pin, GPIO.LOW)
+  GPIO.output(LED_Pin, GPIO.LOW) #sets the output pin LED_Pin to low (turns it off)
   print("Cleaning Up")
-  GPIO.cleanup()
+  GPIO.cleanup() #ensures that the pins on the Pi are properly deactivated before ending the program
 
 ##############
 # Challenges #
