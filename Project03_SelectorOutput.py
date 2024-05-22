@@ -1,8 +1,9 @@
-######################################################################################
-# Project 3                                                                          #
-# Goal: Learn to program by writing functions and using inputs and outputs           #
-# Task: Build the the Project 3 circuit and control a LED and buzzer with a selector #
-######################################################################################
+#########################################################################################################
+# Project 3                                                                                             #
+# Goal: Learn to program by writing functions and using inputs and outputs                              #
+# Task: Build the the Project 3 circuit and control a LED and buzzer with a selector                    #
+# NOTE: THis project will not run until the user completes and uncomments a portion of the main program #
+#########################################################################################################
 
 # Step 1: Importing Libraries
 from time import sleep
@@ -34,7 +35,8 @@ GPIO.setup(C_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 #   - Let's write some functions we can use to make the coding easier!
 
 # Here's a function for seeing if a selector button is pressed.
-#   - The function name is "read_selector_button" and takes an input of "In_Pin"
+#   - The function name is "read_selector_button" and takes an input of "In_Pin". 
+#   - "In_Pin" can be replaced when the function is used, and it will be replaced automatically through the rest of the function.
 def read_selector_button(In_Pin): # Function name and inputs
   # Return/output the GPIO result of the pin. This will be helpful for reading the A and C button pins
   return GPIO.input(In_Pin) 
