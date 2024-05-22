@@ -20,6 +20,7 @@ LED_Off = 1 # Duration in between flashes, seconds
 
 # Step 3: Raspberry Pi Setup 
 GPIO.setmode(GPIO.BOARD)
+#   - Pins can be set to either inputs or outputs, and we have one of each in this project.
 GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW) # This line says we want to use the LED_Pin (in this case, 26) and start with the LED off.
 GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # This line says we want to use the Button_Pin (in this case, 18) and start with the button not pressed.
 
@@ -47,6 +48,7 @@ try:
     else:
       print('Button not pressed')
       sleep(1) # Pause the program for 1 second.
+
 except Exception as error:
     print(error)
 finally:
