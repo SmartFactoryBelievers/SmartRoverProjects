@@ -89,10 +89,11 @@ try:
 except KeyboardInterrupt:
   print("Program Successfully Interrupted")
 
-# Step 6: Clean-up
+finally:
+  # Step 6: Clean-up
   #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
   #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
-finally:
+
   GPIO.output(LED_Pin, GPIO.LOW)
   GPIO.output(Buzzer_Pin, GPIO.LOW)
   print("Cleaning Up")
