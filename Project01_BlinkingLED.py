@@ -42,9 +42,11 @@ try:
         GPIO.output(LED_Pin, GPIO.LOW) #Turn LED off
 
         # NOTE: We'll repeat the four lines above, in the while True, over and over again. This is an easy way to code our program to keep running!
-except Exception as error:
-    print(error)
+except KeyboardInterrupt:
+    print("Program Successfully Interrupted")
 finally:
+    GPIO.output(LED_Pin, GPIO.LOW)
+    print("Cleaning Up")
     GPIO.cleanup()
 
 
