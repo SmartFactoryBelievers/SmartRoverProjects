@@ -16,7 +16,8 @@ import RPi.GPIO as GPIO # Here we import the GPIO library to activate the Raspbe
 #   - Variables are words that take on values for our code.
 #   - You can think of them as boxes that we store numbers in, and we'll later take the number out of the box when we want to use it!
 
-# Here, we'll define some variables for our LED that we'll use later.
+#   - Here, we'll define some variables for our LED that we'll use later.
+#   - Each Raspberry Pi has 40 physical pins within it. The number 7 corresponds to one of those pins within it. Snap 7 is connected to Pin 7 by shear coincidence.
 LED_Pin = 7 # The internal Pi pin number that goes to snap 7
 
 #------------------------ CHALLENGE 1: CHANGE THE VALUES OF LED_ON AND LED_OFF ----------------------
@@ -26,12 +27,15 @@ LED_Off = .1 # Duration in between flashes, seconds
 
 # Step 3: Raspberry Pi Setup 
 #   - We'll setup our Pi to use the right pins and other details.
+#   - GPIO.setmode deals with assigning a certain pin configuration to the Pi. We are using GPIO.BOARD as our configuration.
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW) # This line says we want to use the LED_Pin (in this case, 7) and start with the LED off.
+#   - Each pin can either be an input (ex. receive a signal from a button) or an output (ex. send a signal to a motor)
+#   - A default state also needs to be declared (does it have to be turned on initially or turned off initially?)
+GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW) # This line says we want to use the LED_Pin (in this case, 7) as an output and start with the LED off.
 
 # Step 4: Main program
 #   - This is where we'll do the main steps of our program.
-
+#   - The try: loop lets the system properly deactivate pins when ctrl c is pressed, as it catches the Keyboard Interrupt in the except: portion and then runs the finally: section.
 try:
     while True: # This line says we'll loop over and over again, until we end the program.
         sleep(LED_Off) # Pause the program for the defined duration, keeping the LED off 
@@ -43,11 +47,11 @@ try:
 
         # NOTE: We'll repeat the four lines above, in the while True, over and over again. This is an easy way to code our program to keep running!
 except KeyboardInterrupt:
-    print("Program Successfully Interrupted")
+    print("Program Successfully Interrupted") #sends a signal to the Pi to print the enclosed line of text on the screen
 finally:
-    GPIO.output(LED_Pin, GPIO.LOW)
+    GPIO.output(LED_Pin, GPIO.LOW) #sets the pin low (turns it off)
     print("Cleaning Up")
-    GPIO.cleanup()
+    GPIO.cleanup() #properly deactivates the pins to ensure that the program has been stopped successfully
 
 
 ##############
