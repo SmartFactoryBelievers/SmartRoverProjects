@@ -49,6 +49,10 @@ try:
 except KeyboardInterrupt:
     print("Program Successfully Interrupted") #sends a signal to the Pi to print the enclosed line of text on the screen
 finally:
+# Step 5: Clean-up
+  #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
+  #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
+
     GPIO.output(LED_Pin, GPIO.LOW) #sets the pin low (turns it off)
     print("Cleaning Up")
     GPIO.cleanup() #properly deactivates the pins to ensure that the program has been stopped successfully
