@@ -86,10 +86,13 @@ try:
       
     # Wait 1 second to reset.
     sleep(1)
-except Exception as error:
-    print(error)
+except KeyboardInterrupt:
+  print("Program Successfully Interrupted")
 finally:
-    GPIO.cleanup()
+  GPIO.output(LED_Pin, GPIO.LOW)
+  GPIO.output(Buzzer_Pin, GPIO.LOW)
+  print("Cleaning Up")
+  GPIO.cleanup()
 
 
 ##############
