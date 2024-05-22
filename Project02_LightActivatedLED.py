@@ -53,11 +53,12 @@ try:
 except KeyboardInterrupt:
   print("Program Successfully Interrupted")
 
+#   - After the except section runs, the finally section is triggered. Think of it as the code will be tried over and over until it runs, unless a certain exception occurs, then finally occurs.
+finally:
 # Step 6: Clean-up
   #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
   #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
-#   - After the except section runs, the finally section is triggered. Think of it as the code will be tried over and over until it runs, unless a certain exception occurs, then finally occurs.
-finally:
+
   GPIO.output(LED_Pin, GPIO.LOW) #sets the output pin LED_Pin to low (turns it off)
   print("Cleaning Up")
   GPIO.cleanup() #ensures that the pins on the Pi are properly deactivated before ending the program
