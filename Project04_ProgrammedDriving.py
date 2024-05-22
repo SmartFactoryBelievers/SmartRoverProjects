@@ -92,8 +92,8 @@ try:
 
   #---------- CHALLENGE 2: REORDER THE DRIVE FUNCTIONS TO MAKE A NEW DRIVING PATH  ---------------
   #-- CHALLENGE 3: USE DIFFERENT DRIVE FUNCTIONS AND TIME ARGUMENTS TO MAKE A NEW DRIVING PATH  --
-except Exception as error:
-  print(error)
+except KeyboardInterrupt:
+  print("Program Successfully Interrupted")
 finally:
   # Step 6: Clean-up
   #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
@@ -106,6 +106,7 @@ finally:
   GPIO.output(Right_Backward_Pin, GPIO.LOW)
 
   # Clean up everything.
+  print("Cleaning Up")
   GPIO.cleanup()
 
 ##############
