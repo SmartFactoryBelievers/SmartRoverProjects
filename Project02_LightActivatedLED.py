@@ -49,10 +49,12 @@ try:
       print('Button not pressed')
       sleep(1) # Pause the program for 1 second.
 
-except Exception as error:
-    print(error)
+except KeyboardInterrupt:
+  print("Program Successfully Interrupted")
 finally:
-    GPIO.cleanup()
+  GPIO.output(LED_Pin, GPIO.LOW)
+  print("Cleaning Up")
+  GPIO.cleanup()
 
 ##############
 # Challenges #
