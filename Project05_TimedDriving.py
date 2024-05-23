@@ -76,11 +76,12 @@ def drive_backward(time):
 
 # Here we create a timer function to record the duration of the button press
 def button_press_timer():
-  Start_Time = time.time() # Start the timer
+  Start_Time = time.time() # Start the timer. Records the current time in relation to a predetermined time in the computer.
   while GPIO.input(Button_Pin): # While the button is pressed...
     print("Button Pressed")
   return round(time.time() - Start_Time,2) # Stop the timer and return the elapsed time
-
+  # time.time() records the current time and compares it to the time recorded in Start_Time. The difference in time will be the duration of the button press.
+  # round() rounds the number to however many decimal points are listed after the comma (2 in this case)
 
 # We will use a dummy variable "count" to help with modulo operator
 # Modulo outputs the remainder of a division problem
@@ -91,25 +92,24 @@ count = 0
 # This will divide the value of count by 2 and output the remainder, which will then be compared to 0
 
 try:
-  #------------------------ CHALLENGE 2: CHANGE THE "True' TO THE MODULO OPERATOR ----------------------
   while True: #Loop over and over again
-  #-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
     sleep(0.25)
     # If the button is pressed, let's use the timer function to see how long
     if GPIO.input(Button_Pin):
       Button_Time = button_press_timer()
-      print('Button pressed ' + str(Button_Time) + ' seconds')
+      print('Button pressed ' + str(Button_Time) + ' seconds') #str will print out the value of Button_Time
       
-    #------------------------ CHALLENGE 3: CHANGE THE "True" TO THE MODULO OPERATOR ----------------------
+    #------------------------ CHALLENGE 2: CHANGE THE "True" TO THE MODULO OPERATOR count % 2 == 0 ----------------------
       if True: 
-    #-------------------------------------- END OF CHALLENGE 3 ------------------------------------------
+    #-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
 
-      #------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR EVEN BUTTON PRESSES ----------------------
+      #------------------------ CHALLENGE 3: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR EVEN BUTTON PRESSES ----------------------
         drive_forward(Button_Time)
-      
+        count = count + 1 # We increment the counter for the next button press
       else: 
       #------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR ODD BUTTON PRESSES ----------------------
         count = count + 1 # We increment the counter for the next button press
+
 except KeyboardInterrupt:
   print("Program Successfully Interrupted")
 finally:
