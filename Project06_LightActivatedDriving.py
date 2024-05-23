@@ -15,6 +15,8 @@ Left_Forward_Pin = 35 # The internal Pi pin number that goes to snap 1
 Left_Backward_Pin = 31 # The internal Pi pin number that goes to snap 2
 Right_Forward_Pin = 26 # The internal Pi pin number that goes to snap 3
 Right_Backward_Pin = 21 # The internal Pi pin number that goes to snap 4
+
+# The next variable is the Photo_Pin, which connects to the Phototransistor. A Phototransistor sends a signal when it detects light.
 Photo_Pin = 18 # The internal Pi pin number that goes to snap 6
 
 # Below we can define the timing variables for the driving functions, in seconds
@@ -33,7 +35,7 @@ GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 
-#Our input pin from the button, starts pressed down.
+#Our input pin from the phototransistor, starts with no signal.
 GPIO.setup(Photo_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Step 4: Functions
@@ -103,6 +105,8 @@ try:
     else:
       # For challenge 5, we can use the timer function to control the light seach
       Start_Time = time.time()
+      # A while not loop is the opposite of while loop. 
+      # A "while not" loop loops until a specific signal is received (goes high), but a while loop loops until a certain signal ends (goes low)
       while not(GPIO.input(Photo_Pin)):
         Elapsed_Time = round(time.time() - Start_Time,2)
         print('Not enough light, searching for more')
