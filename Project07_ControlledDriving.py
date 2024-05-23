@@ -1,24 +1,9 @@
-# Project 7
-# Learning to program, writing functions, using motor control outputs, adding complex logic
-# Build the the Project 7 circuit and drive the rover with button presses A, B, and C
-# Set the controls for the rover for 3 unique commands, and possibly more?
-
-#Challenge 1
-# Try changing the drive functions to switch the driving directions for forward/backwards and turning
-
-#Challenge 2
-# Add new drive functions to change the driving patterns for each button press
-
-#Challege 3
-# Incorporate the button press timer from project 5 to add Simon Says to driving functions
-
-#Challege 4
-# See how B uses a double If to see if its pressed and then released or held? 
-# Can you try something similar for A and C to create different commands there too?
-
-#Challenge 5
-# Replace the length-3 snap connector with the phototransistor - now all three buttons
-# are light dependant. Try controlling the rover to stay in the light.
+##############################################################################################
+# Project 7                                                                                  #
+# Learning to program, writing functions, using motor control outputs, adding complex logic  #
+# Build the the Project 7 circuit and drive the rover with button presses A, B, and C        #
+# Set the controls for the rover for 3 unique commands, and possibly more?                   #
+##############################################################################################
 
 #Importing libraries
 # Here we want the time and sleep for timing and GPIO for the Pi's pins
@@ -142,3 +127,20 @@ finally:
 
   # Clean up everything.
   GPIO.cleanup()
+
+#Challenge 1
+# Try changing the drive functions to switch the driving directions for forward/backwards and turning
+
+#Challenge 2
+# Add new drive functions to change the driving patterns for each button press
+
+#Challege 3
+# Incorporate the button press timer from project 5 to add Simon Says to driving functions
+
+#Challege 4
+# See how B uses a double If to see if its pressed and then released or held? 
+# Can you try something similar for A and C to create different commands there too?
+
+#Challenge 5
+# Replace the length-3 snap connector with the phototransistor - now all three buttons
+# are light dependant. Try controlling the rover to stay in the light.
