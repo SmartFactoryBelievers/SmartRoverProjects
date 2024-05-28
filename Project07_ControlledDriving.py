@@ -5,7 +5,7 @@
 # Set the controls for the rover for 3 unique commands, and possibly more?                   #
 ##############################################################################################
 
-#Importing libraries
+# Step 1 - Importing libraries
 # Here we want the time and sleep for timing and GPIO for the Pi's pins
 import time
 from time import sleep
