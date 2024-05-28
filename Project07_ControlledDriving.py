@@ -5,13 +5,14 @@
 # Set the controls for the rover for 3 unique commands, and possibly more?                   #
 ##############################################################################################
 
-# Step 1 - Importing libraries
+# Step 1: Importing libraries
 # Here we want the time and sleep for timing and GPIO for the Pi's pins
 import time
 from time import sleep
 import RPi.GPIO as GPIO
 
-#Let's define variables so we can use them later
+# Step 2: Variables
+# Let's define variables so we can use them later
 Left_Forward_Pin = 35 #the internal Pi pin number that goes to snap 1
 Left_Backward_Pin = 31 #the internal Pi pin number that goes to snap 2
 Right_Forward_Pin = 26 #the internal Pi pin number that goes to snap 3
