@@ -81,8 +81,8 @@ def drive_backward(time):
 
 # For challenge 4, we will use a dummy variable to help with modulo operator
 count = 0
-#The modulo operator statement as %, which means remainder in division
-# So modulo of 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
+#The modulo operator statement is %, which means remainder in division
+# So modulo of 2 keeps track of odd and even presses since an even number divided by 2 has remainder of 0
 # To use this as a logical, let's try count % 2 == 0
 
 # For challenge 5, we will set a maximum light search time for the loop
