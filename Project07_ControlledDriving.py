@@ -18,6 +18,7 @@ Right_Forward_Pin = 26 #the internal Pi pin number that goes to snap 3
 Right_Backward_Pin = 21 #the internal Pi pin number that goes to snap 4
 A_Pin = 7 #the internal Pi pin number that goes to snap 7
 C_Pin = 18 #the internal Pi pin number that goes to snap 6
+
 #Here we can define the timing variables for the driving functions, in seconds
 Forward_Time = 2
 Backward_Time = 1
