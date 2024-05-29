@@ -90,6 +90,7 @@ Max_Search_Time = 4 #seconds
 # If the rover has not found light by then, we can get out of the loop with a break statement
 # break exits the innermost loop and allows the rover to return to the first sleep command
 
+# Step 5: Main Code
 try:
   while True: # Continuous outer while loop
     sleep(0.25)
