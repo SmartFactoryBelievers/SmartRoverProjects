@@ -82,7 +82,8 @@ def button_press_timer():
   while GPIO.input(Button_Pin): #while the button is pressed...
     print("Button Pressed")
   return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
-
+  
+# Step 5: Main Program
 try:
   #------------------------ CHALLENGE 1: CHANGE THE DRIVE FUNCTIONS BELOW TO SWITCH THE DRIVING DIRECTIONS ----------------------
   #------------------------ CHALLENGE 2: ADD NEW DRIVE FUNCTIONS BELOW TO CHANGE THE DRIVING PATTERNS FOR EACH BUTTON PRESS ----------------------
@@ -98,20 +99,23 @@ try:
       # Only pressing C
     if GPIO.input(C_Pin) and not GPIO.input(A_Pin): #only pressing C
         
-      # Can you write a double "if" statement to check whether button C was pressed, held, or released?
       #------------------------ CHALLENGE 4: ADD A SECOND "if" STATEMENT AND SLEEP DELAY TO CHECK WHETHER C WAS PRESSED, RELEASED, OR HELD ----------------------
+      # Can you write a double "if" statement to check whether button C was pressed, held, or released?
       
       #Press_Time = button_press_timer(C_Pin) # For challenge 3
       drive_backward(Backward_Time)
       
       # Pressing B, we can use timing to determine if it's released or held
+    # the initial if statement checks if both A and C are "pressed"
     if GPIO.input(C_Pin) and GPIO.input(A_Pin):
       sleep(0.5)
       
-    #Press B and hold, check if still pressed after delay
+    # Press B and hold, check if still pressed after delay
+    # This second if statement checks if the signals are still being received after the initial if statement and the sleep function
     if GPIO.input(C_Pin) and GPIO.input(A_Pin):
       drive_left_turn(Left_Turn_Time)
-      
+
+    # The else statement occurs if A and C are not still pressed after the delay
     # Press B and released, not still pressed after delay
     else:
       drive_right_turn(Right_Turn_Time)
