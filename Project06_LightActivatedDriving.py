@@ -107,12 +107,15 @@ try:
       Start_Time = time.time()
       # A while not loop is the opposite of while loop. 
       # A "while not" loop loops until a specific signal is received (goes high), but a while loop loops until a certain signal ends (goes low)
+      # As long as the Photo_Pin does not send a signal, the while not loop will continue to loop
       while not(GPIO.input(Photo_Pin)):
         Elapsed_Time = round(time.time() - Start_Time,2)
         print('Not enough light, searching for more')
       
           #------------------------ CHALLENGE 4: REPLACE THE "True" WITH THE MODULO OPERATOR ----------------------
           #------------------------ CHALLENGE 5: REPLACE THE "True" WITH A COMPARATIVE (<) BETWEEN Elapsed_Time and Max_Search_Time ----------------------
+        # if True means this piece of the code will run
+        # Therefore, the piece of code within if True will run, then cycle back to the start of the while not loop, and repeat, making the rover spin to look for light
         if True:
           drive_left_turn(Left_Turn_Time)
           sleep(Wait_Time)
