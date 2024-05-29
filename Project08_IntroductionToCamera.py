@@ -16,19 +16,24 @@ camera = PiCamera()
 # Change the number of pixels and clarity of the camera
 #------------------------ CHALLENGE 1: CHANGE THE RESOLUTION TO THE MINIMUM (64, 64) -------------------------------------------
 camera.resolution = (640, 480)
+# number of pixels on the width and height of the image
 #-------------------------------------- END OF CHALLENGE 1 ---------------------------------------------------------------------
 
 # Change the rate at which the camera records images
 #------------------------ CHALLENGE 2: CHANGE THE RESOLUTION TO THE MAXIMUM (2592, 1944) AND FRAME RATE to 15  -----------------
 camera.framerate = 30
+# video is just a stream of images that give the illusion of movement
+# framerate is the number of images recorded each second. Most films are 24 frames per second (fps), and most games target 30 or 60 fps
 #-------------------------------------- END OF CHALLENGE 2 ---------------------------------------------------------------------
 
-# Rotate the image by x degrees - Note that the camera assembly is upside down so 180 is right side up
+# Rotate the image by x degrees - Note that the camera assembly is on its side, so 90 is right side up
 #------------------------ CHALLENGE 3: CHANGE THE CAMERA ROTATION TO FLIP IT UPSIDE DOWN (0) OR LEFT/RIGHT (90, 270) ----------
-camera.rotation = 180
+camera.rotation = 90
+# The camera in the pi is on its side, so you need to rotate the image to make it right side up. Experiment with different numbers to get some weird perspectives!
 #-------------------------------------- END OF CHALLENGE 3 ------------------------------------------
 
 #------------------------ CHALLENGE 4: ADD TEXT ON TOP OF THE IMAGE AND TRY TO CHANGE THE COLOR AND SIZE ----------------------
+# annotating refers to adding text to an image. Notice that you need the quotation marks to denote that it is a string and not a variable
 camera.annotate_text = 'Hello World!'
 # Change the text size on top of the image between 6 and 160
 camera.annotate_text_size = 50
@@ -49,15 +54,20 @@ camera.brightness = 75
 camera.start_preview() #turn camera on 
 sleep(5)
 camera.stop_preview() #turn camera off
+# You should see the camera turn on with the annotations that you added earlier on, and then turn off after 5 seconds.
 
 # Demo 2
 camera.start_preview() #turn camera on
+# for i in range(100) means that starting at i = 1, the loop will repeat 100 times, with i increasing in value by 1 each repetition
 for i in range(100):
   
   #------------------------ CHALLENGE 5: CHANGE THE VARIABLE TO ITERATE THROUGH BRIGHTNESS INSTEAD OF CONTRAST ------------------
   camera.contrast = i
   #-------------------------------------- END OF CHALLENGE 5 -------------------------------------------------------------------
-  
+
+  # the %s in the line below is declaring that a percent symbol followed by a string will be output in this section
+  # the %i is the variable that will go in that section
+  # if you think about what we've already done, this code will add an increasing percentage on the video that will increase with the contrast
   camera.annotate_text = '%s' %i
   sleep(0.1)
 camera.stop_preview() #turn camera off
