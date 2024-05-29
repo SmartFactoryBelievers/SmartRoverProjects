@@ -38,7 +38,8 @@ GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(A_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(C_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-#Let's write some driving functions we can use later to program a driving path
+# Let's write some driving functions we can use later to program a driving path
+# These are the same driving functions we have used since Project 4
 def drive_forward(time):
   GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor fwd
   GPIO.output(Right_Forward_Pin, GPIO.HIGH) #R motor fwd
