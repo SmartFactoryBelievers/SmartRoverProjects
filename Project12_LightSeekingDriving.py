@@ -163,7 +163,8 @@ try:
 except Exception as error:
   print(error)
 finally:
-  # Step 6: Clean-up
+
+# Step 7: Clean-up
   #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
   #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
 
