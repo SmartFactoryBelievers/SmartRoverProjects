@@ -76,11 +76,12 @@ def drive_backward(time):
 
 # Here we create a timer function to record the duration of the button press
 def button_press_timer():
-  Start_Time = time.time() # Start the timer. Records the current time in relation to a predetermined time in the computer.
+  Start_Time = time.time() # Starts the timer. ,This function records the current time in relation to a reference time in the computer.
   while GPIO.input(Button_Pin): # While the button is pressed...
     print("Button Pressed")
   return round(time.time() - Start_Time,2) # Stop the timer and return the elapsed time
-  # time.time() records the current time and compares it to the time recorded in Start_Time. The difference in time will be the duration of the button press.
+  # The second use of time.time() records the current time, which will be after the time recorded by time.time() in Start_Time 
+  # The difference in time will be the duration of the button press.
   # round() rounds the number to however many decimal points are listed after the comma (2 in this case)
 
 # We will use a dummy variable "count" to help with modulo operator
@@ -91,6 +92,7 @@ count = 0
 # To use this as a logical, let's try count % 2 == 0
 # This will divide the value of count by 2 and output the remainder, which will then be compared to 0
 
+# Step 5: Main Code
 try:
   while True: #Loop over and over again
     sleep(0.25)
