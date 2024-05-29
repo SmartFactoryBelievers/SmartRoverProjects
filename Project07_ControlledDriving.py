@@ -106,7 +106,7 @@ try:
       drive_backward(Backward_Time)
       
       # Pressing B, we can use timing to determine if it's released or held
-    # the initial if statement checks if both A and C are "pressed"
+    # the initial if statement checks if B is "pressed"
     if GPIO.input(C_Pin) and GPIO.input(A_Pin):
       sleep(0.5)
       
@@ -115,8 +115,8 @@ try:
     if GPIO.input(C_Pin) and GPIO.input(A_Pin):
       drive_left_turn(Left_Turn_Time)
 
-    # The else statement occurs if A and C are not still pressed after the delay
-    # Press B and released, not still pressed after delay
+    # The else statement occurs if B is not still pressed after the delay
+    # Pressed B and released, not still pressed after delay
     else:
       drive_right_turn(Right_Turn_Time)
 except Exception as error:
