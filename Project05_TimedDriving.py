@@ -92,7 +92,7 @@ count = 0
 # To use this as a logical, let's try count % 2 == 0
 # This will divide the value of count by 2 and output the remainder, which will then be compared to 0
 
-# Step 5: Main Code
+# Step 5: Main Program
 try:
   while True: #Loop over and over again
     sleep(0.25)
