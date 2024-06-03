@@ -131,7 +131,9 @@ finally:
   # Clean up everything.
   GPIO.cleanup()
 
-
+############
+#Challenges#
+############
 #Challenge 1
 # Try changing the drive functions to switch the driving directions
 
