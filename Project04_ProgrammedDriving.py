@@ -116,6 +116,7 @@ finally:
 ##############
 
 # Challenge 1: Try changing the driving time variables to create a new driving path.
+#    Q: Can you control what angle the rover turns at by increasing or decreasing the time?
 
 # Challenge 2: Reorder the drive functions to create a new driving path.
 
