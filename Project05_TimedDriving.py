@@ -79,7 +79,7 @@ def drive_backward(time):
 
 # Here we create a timer function to record the duration of the button press
 def button_press_timer():
-  Start_Time = time.time() # Starts the timer. ,This function records the current time in relation to a reference time in the computer.
+  Start_Time = time.time() # Starts the timer. This function records the current time in relation to a reference time in the computer.
   while GPIO.input(Button_Pin): # While the button is pressed...
     print("Button Pressed")
   return round(time.time() - Start_Time,2) # Stop the timer and return the elapsed time
@@ -91,8 +91,8 @@ def button_press_timer():
 # Modulo outputs the remainder of a division problem
 count = 0
 # Replace the True with the modulo operator statement as %, which means remainder in division
-# So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
-# To use this as a logical, let's try count % 2 == 0
+# So modulo 2 (% 2) keeps track of odd and even presses since even divided by 2 has remainder of 0
+# To use this as a logical, let's try count % 2 == 0. 
 # This will divide the value of count by 2 and output the remainder, which will then be compared to 0
 
 # Step 5: Main Program
@@ -131,11 +131,13 @@ finally:
   # Clean up everything.
   GPIO.cleanup()
 
-############
-#Challenges#
-############
+##############
+# Challenges #
+##############
+
 #Challenge 1
 # Try changing the drive functions to switch the driving directions
+#    Go to the 
 
 #Challenge 2
 # Change the "True" to  the modulo operator "count % 2 == 0"
