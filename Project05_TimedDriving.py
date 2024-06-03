@@ -8,8 +8,11 @@
 from time import sleep
 import RPi.GPIO as GPIO
 # A new import: we will use the time library for the timer function(s). This is the same library that we imported sleep from.
-# Sleep is one of the functions inside time, but there are other functions that we can use - like timer.
+# Sleep is one of the functions inside time, but there are other functions that we can use - like timer
 import time
+# By importing sleep directly, we don't need to write it as time.sleep, because we specified it in the code.
+# One of the functions we will use from the library time is time(), which reports back the current time.
+# Since we didn't import time() directly, we need to write it as time.time() [the library followed by the function within it]
 
 # Step 2: Variables
 Left_Forward_Pin = 35 # The internal Pi pin number that goes to snap 1
