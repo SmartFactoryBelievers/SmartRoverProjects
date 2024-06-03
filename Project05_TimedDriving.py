@@ -137,13 +137,20 @@ finally:
 
 #Challenge 1
 # Try changing the drive functions to switch the driving directions
-#    Go to the 
+#    - See the section marked Challenge 1 in the code.
+#    - Also try changing the drive functions that are called later in the code after the button press
 
 #Challenge 2
 # Change the "True" to  the modulo operator "count % 2 == 0"
+#    - See the section marked Challenge 2 in the code.
+#    - Q: What would happen if you made it 3? Think about how division and remainders work...
 
 #Challege 3
 # With the modulo, add new dirivng functions for even numbered presses
+#    - See the section marked Challenge 3 in the code.
+#    - Q: What are some practical applications for this? Brainstorm some ideas for this kind of program.
 
 #Challege 4
 # With the modulo, add new dirivng functions for odd numbered presses
+#    - See the section marked Challenge 4 in the code.
+#    - Q: Can you get the rover to return to its starting point?
