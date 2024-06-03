@@ -142,18 +142,27 @@ finally:
   # Clean up everything.
   GPIO.cleanup()
 
+##############
+# Challenges #
+##############
 
 #Challenge 1
 # Try changing the drive functions to switch the driving directions
+#    - See the section Challenge 1 in the main code
+#    - Q: Do you think there is an ideal light seeking pattern? Why or why not?
 
 #Challenge 2
 # Add new drive functions to change its light seeking spin pattern
+#    - See the section Challenge 2 in the main code
+#    - Q: Do you think there is an ideal light seeking pattern? Why or why not?
 
 #Challege 3
 # Add the 100 Ohm resistor in series with the photoresistor to increase light sensitivity
+#    - Q: Why does this increase light sensitivity? Think about voltage and resistance...
 
 #Challege 4
 # With the modulo operator, have the rover alternate left or right spins in light searching
+#    - Q: What motion do you think would be best to find more light? Try to program it!
 
 #Challenge 5
 # After a certain amount of time, have the rover spin to look for light
