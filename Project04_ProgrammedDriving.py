@@ -81,6 +81,7 @@ def drive_backward(time):
 
 #Step 5: Main Program
 #Here we use a "for" loop to control the number of times the code is executed.
+#If we increase the range, the code will loop multiple times.
 #------- NOW YOU TRY: CHANGE THE VALUE IN range() TO INCREASE THE NUMBER OF LOOPS PERFORMED ------
 try:
   for n in range(1):
