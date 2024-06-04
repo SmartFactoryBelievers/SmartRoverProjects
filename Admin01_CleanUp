@@ -1,4 +1,4 @@
-import 
+import RPi.GPIO as GPIO
 
 GPIO.output(LED_Pin, GPIO.LOW) #sets the output pin LED_Pin to low (turns it off)
   print("Cleaning Up")
