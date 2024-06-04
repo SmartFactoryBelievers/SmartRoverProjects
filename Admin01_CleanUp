@@ -1,5 +1,17 @@
 import RPi.GPIO as GPIO
 
+Left_Forward_Pin = 35 # The internal Pi pin number that goes to snap 1
+Left_Backward_Pin = 31 # The internal Pi pin number that goes to snap 2
+Right_Forward_Pin = 26 # The internal Pi pin number that goes to snap 3
+Right_Backward_Pin = 21 # The internal Pi pin number that goes to snap 4
+
+GPIO.setmode(GPIO.BOARD)
+
+# Our motor output pins, start off
+GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.output(LED_Pin, GPIO.LOW) #sets the output pin LED_Pin to low (turns it off)
   print("Cleaning Up")
   GPIO.cleanup() #ensures that the pins on the Pi are properly deactivated before ending the program
