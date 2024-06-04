@@ -1,0 +1,5 @@
+import 
+
+GPIO.output(LED_Pin, GPIO.LOW) #sets the output pin LED_Pin to low (turns it off)
+  print("Cleaning Up")
+  GPIO.cleanup() #ensures that the pins on the Pi are properly deactivated before ending the program
