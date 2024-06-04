@@ -42,8 +42,9 @@ camera.awb_gains = gain_set
 # Prepping for image analysis and eliminating background Noise
 #Images are stored in a 3D array with each pixel having Red, Green, and Blue values
 Image = np.empty((640,480,3),dtype=np.uint8)
-# Think of this as an image that is 640 by 480 pixels, but it is 3 pixels "thick" and each pixel can be at a certain depth
-# Where the pixel is in the thickness determines its color
+# Think of the array as a cube, with a width of 640, a height of 480, and a thickness of 3
+# The "image" is on the width and height of the cube, and the "depth" is the color of the pixel in each location
+# "Depth" 1, 2, and 3 each relate to Blue, Green, and Red. This is a great example of how array's store information!
 
 Noise = np.empty((640,480,3),dtype=np.uint8)
 RGB_Text = ['Red','Green','Blue'] #Array for naming color
@@ -53,6 +54,7 @@ Noise = Noise-np.mean(Noise)
 
 #------------------------ CHALLENGE 2: UNCOMMENT THE LINES AND REPLACE THE ?? WITHT THE CORRECT VARIABLES ---------------------------------------
 # For challenge 2, let's create a function like we've done before for outputs
+# The variables should relate to the LED and Buzzer components
 # It should have output_pin and delay time arguments to turn them High and then Low
 # Don't forget to add your function in the "While True" code block below!
 #def your_function(??, ???):
