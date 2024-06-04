@@ -22,14 +22,15 @@ camera.resolution = (640, 480)
 # Change the rate at which the camera records images
 #------------------------ CHALLENGE 2: CHANGE THE RESOLUTION TO THE MAXIMUM (2592, 1944) AND FRAME RATE to 15  -----------------
 camera.framerate = 30
-# video is just a stream of images that give the illusion of movement
+# video is just a stream of images that gives the illusion of movement
 # framerate is the number of images recorded each second. Most films are 24 frames per second (fps), and most games target 30 or 60 fps
 #-------------------------------------- END OF CHALLENGE 2 ---------------------------------------------------------------------
 
 # Rotate the image by x degrees - Note that the camera assembly is on its side, so 90 is right side up
 #------------------------ CHALLENGE 3: CHANGE THE CAMERA ROTATION TO FLIP IT UPSIDE DOWN (0) OR LEFT/RIGHT (90, 270) ----------
 camera.rotation = 90
-# The camera in the pi is on its side, so you need to rotate the image to make it right side up. Experiment with different numbers to get some weird perspectives!
+# The camera in the pi is on its side, so you need to rotate the image to make it right side up. 
+# Experiment with different numbers to get some weird perspectives!
 #-------------------------------------- END OF CHALLENGE 3 ------------------------------------------
 
 #------------------------ CHALLENGE 4: ADD TEXT ON TOP OF THE IMAGE AND TRY TO CHANGE THE COLOR AND SIZE ----------------------
