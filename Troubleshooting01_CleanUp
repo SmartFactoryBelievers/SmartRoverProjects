@@ -1,3 +1,7 @@
+# Do not edit this piece of code
+# This program is designed to fix "ghost" motor issues
+# These occur when the motors run when they should not or outside of a project
+
 import RPi.GPIO as GPIO
 
 Left_Forward_Pin = 35 # The internal Pi pin number that goes to snap 1
