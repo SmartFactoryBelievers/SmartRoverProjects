@@ -1,8 +1,9 @@
-#########################################################
-# Project 1                                             #
-# Goal: Learn to program and use outputs                #
-# Task: Build the the Project 1 circuit and blink a LED #
-#########################################################
+############################################################
+# Project 1                                                #
+# Goal: Learn to program and use outputs                   #
+# Task: Build the the Project 1 circuit and blink a LED    #
+# Output: The code should cause the rover to blink the LED #
+############################################################
 
 # NOTE: Every line starting with a hashtag (#) is a "comment". These lines are not counted as code, and can be used to take notes or add messages to our coding file!
 
