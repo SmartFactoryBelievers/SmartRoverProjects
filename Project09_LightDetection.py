@@ -29,7 +29,7 @@ GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)
 camera = PiCamera()
 camera.resolution = (640, 480)
 camera.framerate = 30
-rawCapture = PiRGBArray(camera, size=(640, 480))
+rawCapture = PiRGBArray(camera, size=(640, 480)) #Takes a photo from the specified source (camera) and at the specified size
 
 #Setting Min and Max values for HSV image analysis
 # Like RGB, HSV is an image color scheme but it's not defined by a color ratio
@@ -96,15 +96,24 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
   # Iterate counter
   i = i +1
 
+##############
+# Challenges #
+##############
 
 #Challenge 1
 # Try changing the Light Threshold value to keep the LED always on
+#    - See Challenge 1 Section in the main code
+#    - Q: Do you think different kinds of light would change the results?
 
 #Challenge 2
 # Try changing the Light Threshold value to keep the LED always off
+#    - See Challenge 2 Section in the main code
+#    - Q: Do you think different kinds of light would change the results?
 
 #Challege 3
 # Can you add another pin for the buzzer to sound when the ambient light is too low?
+#    - See Challenge 3 Section in the main code
 
 #Challege 4
 # Can you swap out the Max and Min Light thresholds to activate the LED in darkness?
+#    - See Challenge 4 Section in the main code
