@@ -141,17 +141,23 @@ finally:
 
 #Challenge 1
 # Try changing the drive functions to switch the driving directions for forward/backwards and turning
+#    - See the Challenge 1 Section in the main code
+#    - Q: How can you improve the functions to optimize the light seeking for your specific room?
 
 #Challenge 2
-# Add new drive functions to change the driving patterns for each button press
+# Add new drive functions to change the driving patterns for each button press 
+#    - See the Challenge 2 Section in the main code
 
 #Challege 3
 # Incorporate the button press timer from project 5 to add Simon Says to driving functions
+#    - See the Challenge 3 Section in the main code
 
 #Challege 4
 # See how B uses a double If to see if its pressed and then released or held? 
 # Can you try something similar for A and C to create different commands there too?
+#    - See the Challenge 4 Section in the main code
 
 #Challenge 5
 # Replace the length-3 snap connector with the phototransistor - now all three buttons
 # are light dependant. Try controlling the rover to stay in the light.
+#    - See the Challenge 5 Section in the main code
