@@ -84,24 +84,35 @@ for effect in camera.IMAGE_EFFECTS:
 camera.stop_preview() #turn camera off
 camera.close() #close the camera
 
+##############
+# Challenges #
+##############
 
 #Challenge 1
 # Try changing the camera resolution to the minimum with 64, 64 and see how it looks
+#    - See the Challenge 1 Section in the main code
+#    - Q: Do you think this requires more or less processing power from the pi?
 
 #Challenge 2
 # Try changing the camera resolution the maximum with 2592, 1944 and
 # the framerate to 15 and see how it looks
+#    - See the Challenge 2 Section in the main code
+#    - Q: Do you think this requires more or less processing power from the pi?
 
 #Challege 3
 # Try changing the camera rotation to flip it upside down (0) or left or right (90, 270)
+#    - See the Challenge 3 Section in the main code
 
 #Challenge 4
 # Try adding a text on top of the image and changing the colors and size
+#    - See the Challenge 4 Section in the main code
 
 #Challenge 5
 # Try looping through all the contrast and brightness options
 # and annotate the image with their current levels
+#    - See the Challenge 5 Section in the main code
 
 #Challenge 6
 # Try looping through all the IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES options
 # and annotate the image with their current levels
+#    - See the Challenge 6 Section in the main code
