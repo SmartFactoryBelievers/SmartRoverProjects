@@ -2,7 +2,8 @@
 # Project 3                                                                                             #
 # Goal: Learn to program by writing functions and using inputs and outputs                              #
 # Task: Build the the Project 3 circuit and control a LED and buzzer with a selector                    #
-# NOTE: THis project will not run until the user completes and uncomments a portion of the main program #
+# NOTE: This project will not run until the user completes and uncomments a portion of the main program #
+# Output: The rover should blink an LED, buzz a buzzer, or do both, 
 #########################################################################################################
 
 # Step 1: Importing Libraries
