@@ -37,7 +37,7 @@ rawCapture = PiRGBArray(camera, size=(640, 480)) #Takes a photo from the specifi
 # Hue goes from 0 to 180, while Saturation and Value go from 0 to 255
 
 Light_Min = np.array([0,50,155], np.uint8)
-# array refers to a data structure that contains multiple elements, three in this case 
+# array refers to a data structure that contains multiple elements, three in this case
 Light_Max = np.array([180,255,255], np.uint8) 
 # uint8 is a data value and assigns a maximum value of 255 to the values within the brackets
 
