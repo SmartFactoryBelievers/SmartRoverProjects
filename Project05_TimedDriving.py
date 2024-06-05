@@ -96,40 +96,23 @@ count = 0
 # This will divide the value of count by 2 and output the remainder, which will then be compared to 0
 
 # Step 5: Main Program
-try:
-  while True: #Loop over and over again
-    sleep(0.25)
-    # If the button is pressed, let's use the timer function to see how long
-    if GPIO.input(Button_Pin):
-      Button_Time = button_press_timer()
-      print('Button pressed ' + str(Button_Time) + ' seconds') #str will print out the value of Button_Time
-      
-    #------------------------ CHALLENGE 2: CHANGE THE "True" TO THE MODULO OPERATOR count % 2 == 0 ----------------------
-      if True: 
-    #-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
+while True: #Loop over and over again
+  sleep(0.25)
+  # If the button is pressed, let's use the timer function to see how long
+  if GPIO.input(Button_Pin):
+    Button_Time = button_press_timer()
+    print('Button pressed ' + str(Button_Time) + ' seconds') #str will print out the value of Button_Time
+    
+  #------------------------ CHALLENGE 2: CHANGE THE "True" TO THE MODULO OPERATOR count % 2 == 0 ----------------------
+    if True: 
+  #-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
 
-      #------------------------ CHALLENGE 3: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR EVEN BUTTON PRESSES ----------------------
-        drive_forward(Button_Time)
-        count = count + 1 # We increment the counter for the next button press
-      else: 
-      #------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR ODD BUTTON PRESSES ----------------------
-        count = count + 1 # We increment the counter for the next button press
-
-except KeyboardInterrupt:
-  print("Program Successfully Interrupted")
-finally:
-  # Step 6: Clean-up
-  #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
-  #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
-  print("Cleaning Up")
-  # Set each pin to LOW.
-  GPIO.output(Left_Forward_Pin, GPIO.LOW)
-  GPIO.output(Left_Backward_Pin, GPIO.LOW)
-  GPIO.output(Right_Forward_Pin, GPIO.LOW)
-  GPIO.output(Right_Backward_Pin, GPIO.LOW)
-
-  # Clean up everything.
-  GPIO.cleanup()
+    #------------------------ CHALLENGE 3: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR EVEN BUTTON PRESSES ----------------------
+      drive_forward(Button_Time)
+      count = count + 1 # We increment the counter for the next button press
+    else: 
+    #------------------------ CHALLENGE 4: ADD NEW DRIVING FUNCTIONS TO THE LOOP BELOW FOR ODD BUTTON PRESSES ----------------------
+      count = count + 1 # We increment the counter for the next button press
 
 ##############
 # Challenges #
