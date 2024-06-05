@@ -97,86 +97,69 @@ Max_Search_Time = 30 #seconds
 Light_Intensity = 1 # For challenge 4, we can initialize a variable for Light Intensity to scale the turn durations
 
 # Step 6: Main Code Body
-try:
-  for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
-  #Capturing image from camera and converting to HSV format
-    sleep(3)
-    Image = frame.array
-    hsv = cv2.cvtColor(Image, cv2.COLOR_BGR2HSV)
-    # Analyzing the value (lightness) layer of the image (3rd layer)
-    Light = hsv[:,:,2]
-    # Calculating the total light in the left and right halves of the image
-    Left_Light = sum(sum(Light[:,0:320]))
-    Right_Light = sum(sum(Light[:,320:]))
-    # Determining the percentage of light of the left and right halves of the image
-    Left_Light_Perc = Left_Light / sum(sum(Light))
-    Right_Light_Perc = Right_Light / sum(sum(Light))
-    print('L = ' + str(Left_Light_Perc) + ' and R = ' + str(Right_Light_Perc))
 
-    Elapsed_Time = round(time.time() - Start_Time,2)  # For challenge 3, determining time passed since forward drive
+for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
+#Capturing image from camera and converting to HSV format
+  sleep(3)
+  Image = frame.array
+  hsv = cv2.cvtColor(Image, cv2.COLOR_BGR2HSV)
+  # Analyzing the value (lightness) layer of the image (3rd layer)
+  Light = hsv[:,:,2]
+  # Calculating the total light in the left and right halves of the image
+  Left_Light = sum(sum(Light[:,0:320]))
+  Right_Light = sum(sum(Light[:,320:]))
+  # Determining the percentage of light of the left and right halves of the image
+  Left_Light_Perc = Left_Light / sum(sum(Light))
+  Right_Light_Perc = Right_Light / sum(sum(Light))
+  print('L = ' + str(Left_Light_Perc) + ' and R = ' + str(Right_Light_Perc))
+
+  Elapsed_Time = round(time.time() - Start_Time,2)  # For challenge 3, determining time passed since forward drive
+  
+#----------------------------- CHALLENGE 4: UNCOMMENT THE IF/ELSE STATEMENTS BELOW ----------------------------
+  # For challenge 4, let's find the ratio of the max light to the min light
+  # We can set this as the intensity with np.max([Left_Light_Perc, Right_Light_Perc])
+  # and np.min([Left_Light_Perc, Right_Light_Perc]), respectively
+  # Light_Intensity = max light / min light
+    # If the left side is lighter than the threshold, turn left
+    #if Left_Light_Perc > Left_Threshold/100:
+    #drive_left_turn(Left_Turn_Time * Light_Intensity)
     
-  #----------------------------- CHALLENGE 4: UNCOMMENT THE IF/ELSE STATEMENTS BELOW ----------------------------
-    # For challenge 4, let's find the ratio of the max light to the min light
-    # We can set this as the intensity with np.max([Left_Light_Perc, Right_Light_Perc])
-    # and np.min([Left_Light_Perc, Right_Light_Perc]), respectively
-    # Light_Intensity = max light / min light
-      # If the left side is lighter than the threshold, turn left
-      #if Left_Light_Perc > Left_Threshold/100:
-      #drive_left_turn(Left_Turn_Time * Light_Intensity)
+    # If the right side is lighter than the threshold, turn right
+    #else:
+      #if Right_Light_Perc > Right_Threshold/100:
+      #drive_right_turn(Right_Turn_Time * Light_Intensity)
       
-      # If the right side is lighter than the threshold, turn right
-      #else:
-        #if Right_Light_Perc > Right_Threshold/100:
-        #drive_right_turn(Right_Turn_Time * Light_Intensity)
+    # If neither side exceeds the threshold, drive forward (or reverse?)
+    #else: 
+#------------------------------------------- END OF CHALLENGE 4 -----------------------------------------------
+  
+#-------------------------------------- CHALLENGE 3: REPLACE "True" WITH A LOGICAL STATEMENT --------------------------------
+      if True: # Try changing the True to a comparitive (<) between
+      # Elapsed_Time and Max_Search_Time for challenge 3   
         
-      # If neither side exceeds the threshold, drive forward (or reverse?)
-      #else: 
-  #------------------------------------------- END OF CHALLENGE 4 -----------------------------------------------
-    
-  #-------------------------------------- CHALLENGE 3: REPLACE "True" WITH A LOGICAL STATEMENT --------------------------------
-        if True: # Try changing the True to a comparitive (<) between
-        # Elapsed_Time and Max_Search_Time for challenge 3   
-          
-  #------------------------------------- CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ---------------------------------------
-        # Replace the True with the modulo operator statement as %, which means remainder in division
-        # So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
-        # To use this as a logical, let's try count % 2 == 0
-        if True: # Try changing the True to the modulo for challenge 2
-          drive_forward(Forward_Time)
-        
-      else: # For challenge 2, modulo uses these drive commands on odd loops
-        drive_backward(Backward_Time)
-        count = count + 1 # Increment the counter for the modulo
-  #--------------------------------------------- END OF CHALLENGE 2 ---------------------------------------------------------  
+#------------------------------------- CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ---------------------------------------
+      # Replace the True with the modulo operator statement as %, which means remainder in division
+      # So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
+      # To use this as a logical, let's try count % 2 == 0
+      if True: # Try changing the True to the modulo for challenge 2
+        drive_forward(Forward_Time)
+      
+    else: # For challenge 2, modulo uses these drive commands on odd loops
+      drive_backward(Backward_Time)
+      count = count + 1 # Increment the counter for the modulo
+#--------------------------------------------- END OF CHALLENGE 2 ---------------------------------------------------------  
 
-      else: # If max search time exceeded, spin and look elsewhere for challenge 3
-        drive_left_turn(Left_Turn_Time * 2)
-    #--------------------------------------------- END OF CHALLENGE 3 ------------------------------------------------------- 
+    else: # If max search time exceeded, spin and look elsewhere for challenge 3
+      drive_left_turn(Left_Turn_Time * 2)
+  #--------------------------------------------- END OF CHALLENGE 3 ------------------------------------------------------- 
 
-    # Reset the timer for a new searching period
-    Start_Time = time.time()
-    print('here')
-    sleep(Wait_Time)
-    
-  #Clearing image cache
-  rawCapture.truncate(0)
-except Exception as error:
-  print(error)
-finally:
-
-# Step 7: Clean-up
-  #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
-  #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
-
-  # Set each pin to LOW.
-  GPIO.output(Left_Forward_Pin, GPIO.LOW)
-  GPIO.output(Left_Backward_Pin, GPIO.LOW)
-  GPIO.output(Right_Forward_Pin, GPIO.LOW)
-  GPIO.output(Right_Backward_Pin, GPIO.LOW)
-
-  # Clean up everything.
-  GPIO.cleanup()
-
+  # Reset the timer for a new searching period
+  Start_Time = time.time()
+  print('here')
+  sleep(Wait_Time)
+  
+#Clearing image cache
+rawCapture.truncate(0)
 
 #Challenge 1
 # Try changing the Left and Right Thresholds to force different turning patterns
