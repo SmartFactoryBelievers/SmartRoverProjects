@@ -98,83 +98,68 @@ Noise = Noise-np.mean(Noise)
 
 # Step 6: Main Code Body
 #Looping with different images to determine object colors
-try:
-  print('Ready to take photo')
-  while True:
-    #Press the push button to capture an image
-    if GPIO.input(Button_Pin) == True:
-      sleep(2)
-      print('Photo taken')
-      camera.capture(Image,'rgb')
-      RGB_Array = []
-      
-      # For each of red, green, and blue, calculate the most prominent color through means
-      for col in range(0,3):
-        RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))
-        Color = RGB_Text[np.argmax(RGB_Array)]
-        print(Color)
 
-      #------------------------ CHALLENGE 3: REPLACE "?" WITH THE CORRECT VARIABLES AND UNCOMMENT THE LINE BELOW -----------------------------
-      # For challenge 3, let's compare the most prominent color to the second most
-      # We can use this ratio to set the Color_Intensity variable
-      # with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
-      # However, the color channels can be negative, so let's use a max to keep positive
-      #Color_Intensity = np.max([? / ?, 2])
-      #----------------------------------------------------------- END OF CHALLENGE 3 ---------------------------------------------------------
-      
-      #--------------------------------------------- CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT ------------------------------------
-      # For challenge 4, let's look for a pattern like Red followed by another color
-      # We can use an if statement to see if the Last_Color was Red
-      # Replace this True with a logical to check, remember it's ==, not = here
-      # HINT: This challenge is similar to a challenge in Project 10
-      # HINT: You will need to update Last_Color after each output
-      # HINT: Be sure to uncomment Last_Color before attempting Challenge 4
+print('Ready to take photo')
+while True:
+  #Press the push button to capture an image
+  if GPIO.input(Button_Pin) == True:
+    sleep(2)
+    print('Photo taken')
+    camera.capture(Image,'rgb')
+    RGB_Array = []
     
-      if True:
-      # Activate motor controller outputs based on the determined object color
-      #----------------------------------- CHALLENGE 1: CHANGE THE COLORS ASSOCIATED WITH EACH DRIVING COMMAND -------------------------------
-        if Color == 'Red': #Backward for Red object
-          drive_backward(Backward_Time * Color_Intensity)
-          sleep(Wait_Time)
-      
-        if Color == 'Green': #Forward for Green object
-          drive_forward(Forward_Time * Color_Intensity)
-          sleep(Wait_Time)
-          
-        if Color == 'Blue': #Turn for Blue object
-      #-------------------------------------------------- END OF CHALLENGE 1 ---------------------------------------------------------------- 
-          
-      #---------------------------------- CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ----------------------------------------------
-          # Replace the True with the modulo operator statement as %, which means remainder in division
-          # So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
-          # To use this as a logical, let's try count % 2 == 0
-          if True: # Try changing the True to the modulo for challenge 2
-            drive_left_turn(Left_Turn_Time * Color_Intensity)
-            
-          else: # For challenge 2, modulo uses these drive commands on odd loops
-            drive_right_turn(Right_Turn_Time * Color_Intensity)
-            sleep(Wait_Time)
-            count = count + 1 # Increment the counter for the modulo
-      #---------------------------------------------------- END OF CHALLENGE 2 ----------------------------------------------
+    # For each of red, green, and blue, calculate the most prominent color through means
+    for col in range(0,3):
+      RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))
+      Color = RGB_Text[np.argmax(RGB_Array)]
+      print(Color)
+
+    #------------------------ CHALLENGE 3: REPLACE "?" WITH THE CORRECT VARIABLES AND UNCOMMENT THE LINE BELOW -----------------------------
+    # For challenge 3, let's compare the most prominent color to the second most
+    # We can use this ratio to set the Color_Intensity variable
+    # with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
+    # However, the color channels can be negative, so let's use a max to keep positive
+    #Color_Intensity = np.max([? / ?, 2])
+    #----------------------------------------------------------- END OF CHALLENGE 3 ---------------------------------------------------------
+    
+    #--------------------------------------------- CHALLENGE 4: REPLACE "True" WITH A LOGICAL STATEMENT ------------------------------------
+    # For challenge 4, let's look for a pattern like Red followed by another color
+    # We can use an if statement to see if the Last_Color was Red
+    # Replace this True with a logical to check, remember it's ==, not = here
+    # HINT: This challenge is similar to a challenge in Project 10
+    # HINT: You will need to update Last_Color after each output
+    # HINT: Be sure to uncomment Last_Color before attempting Challenge 4
+  
+    if True:
+    # Activate motor controller outputs based on the determined object color
+    #----------------------------------- CHALLENGE 1: CHANGE THE COLORS ASSOCIATED WITH EACH DRIVING COMMAND -------------------------------
+      if Color == 'Red': #Backward for Red object
+        drive_backward(Backward_Time * Color_Intensity)
+        sleep(Wait_Time)
+    
+      if Color == 'Green': #Forward for Green object
+        drive_forward(Forward_Time * Color_Intensity)
+        sleep(Wait_Time)
         
-        #Last_Color = Color
-        print('Ready to take photo')
- #------------------------------------------------------- END OF CHALLENGE 4 ---------------------------------------------------------
-except Exception as error:
-  print(error)
-finally:
-  # Step 6: Clean-up
-  #   - When using motors, we want to set the motors to LOW and use GPIO to clean-up the pins.
-  #   - Clean-up steps make sure we close out resources properly, so we don't have problems the next time we use them.
-
-  # Set each pin to LOW.
-  GPIO.output(Left_Forward_Pin, GPIO.LOW)
-  GPIO.output(Left_Backward_Pin, GPIO.LOW)
-  GPIO.output(Right_Forward_Pin, GPIO.LOW)
-  GPIO.output(Right_Backward_Pin, GPIO.LOW)
-
-  # Clean up everything.
-  GPIO.cleanup()
+      if Color == 'Blue': #Turn for Blue object
+    #-------------------------------------------------- END OF CHALLENGE 1 ---------------------------------------------------------------- 
+        
+    #---------------------------------- CHALLENGE 2: REPLACE "True" WITH THE MODULO OPERATOR ----------------------------------------------
+        # Replace the True with the modulo operator statement as %, which means remainder in division
+        # So modulo 2 keeps track of odd and even presses since even divided by 2 has remainder of 0
+        # To use this as a logical, let's try count % 2 == 0
+        if True: # Try changing the True to the modulo for challenge 2
+          drive_left_turn(Left_Turn_Time * Color_Intensity)
+          
+        else: # For challenge 2, modulo uses these drive commands on odd loops
+          drive_right_turn(Right_Turn_Time * Color_Intensity)
+          sleep(Wait_Time)
+          count = count + 1 # Increment the counter for the modulo
+    #---------------------------------------------------- END OF CHALLENGE 2 ----------------------------------------------
+      
+      #Last_Color = Color
+      print('Ready to take photo')
+#------------------------------------------------------- END OF CHALLENGE 4 ---------------------------------------------------------
       
 #Challenge 1
 # Try changing the colors associated with the driving commands, like flipping red and green
