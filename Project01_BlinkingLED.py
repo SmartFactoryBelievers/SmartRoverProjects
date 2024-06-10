@@ -1,17 +1,29 @@
 #################################################################################################
 # Project 1                                                                                     #
-# Objective: Learn to program and use outputs                                                   #
-# Activity: Build the Project 1 circuit and blink an LED                                        #
-# Goal: The code should cause the rover to blink the LED based on timed programming from user   #
+# Learning Objective: Learn the basics of programming and use outputs                           #
+# Introduction: This project involves building a physical snap circuit and programming it       #
+#      to blink an LED. You will run the program and the LED should blink based on the values   #
+#      in the code. The main concepts covered in this project are Libraries, Variables,         #
+#      Setting Up the Raspberry Pi, and While Loops.                                            #
+# For this project, you will not need to modify or add any code to complete the initial         #
+#      requirements. You WILL need to change code to complete the 2 challenges                  #
 #################################################################################################
 
-# NOTE: Every line starting with a hashtag (#) is a "comment". These lines are not counted as code, and can be used to take notes or add messages to our coding file!
+# NOTE: Every line starting with a hashtag (#) is a "comment"
+# These lines are not read by the computer, and can be used to take notes or add messages to our coding file!
+# It basically tells the computer to ignore this line
 
-# Step 1: Importing Libraries (READ-ONLY)
-#   - Libraries are defined sets of code for specific uses. 
-#   - They let us use pre-created code, instead of having to build it ourselves!
-from time import sleep # Here we import the sleep function to act as a timer.
-import RPi.GPIO as GPIO # Here we import the GPIO library to activate the Raspberry Pi computer.
+# Step 1: Importing Libraries 
+
+#   - The import command tells the computer that you are going to use code that you didn't write (premade code)
+#   - It lets us use pre-created code, instead of having to build it ourselves!
+#   - Libraries are defined sets of premade code for specific uses (examples here are time and RPi.GPIO). 
+
+from time import sleep 
+#   - This command imports the function "sleep" from the library "time". We will need this to make the program "pause" 
+#     between steps of the code
+import RPi.GPIO as GPIO 
+#   - Here we import the GPIO library to activate the Raspberry Pi computer.
 
 # Step 2: Variables (READ-ONLY)
 #   - Variables are words that take on values for our code.
