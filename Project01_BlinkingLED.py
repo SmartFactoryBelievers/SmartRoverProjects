@@ -33,7 +33,8 @@ import RPi.GPIO as GPIO
 #   - Here, we'll define some variables for our LED that we'll use later.
 #   - If we change the definition of a variable, it will change the value of the variable throughout the code.
 
-LED_Pin = 7 # The internal Pi pin number that goes to snap 7
+LED_Pin = 7 
+#   - The internal Pi pin number that goes to snap 7
 #   - Each Raspberry Pi has 40 physical pins within it. The number 7 corresponds to one of those pins within it. Snap 7 is connected to Pin 7 by shear coincidence.
 
 #   - This is a challenge. The code surrounded by the challenge is what will need to be modified to complete the challenge.
