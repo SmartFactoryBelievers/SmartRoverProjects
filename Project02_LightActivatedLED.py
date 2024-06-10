@@ -1,8 +1,7 @@
 ##########################################################################
 # Project 2                                                              #
-# Goal: Learn to program using inputs and outputs                        #
-# Task: Build the the Project 2 circuit and control an LED with a button #
-# Output: The rover should blink the LED once the button is pressed      #
+# Learning Objective: Learn to program using multiple inputs and outputs #
+# Introduciton:      
 ##########################################################################
 
 # Step 1: Importing Libraries
