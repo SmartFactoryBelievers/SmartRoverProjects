@@ -4,7 +4,8 @@
 # Introduction: The goal of this project is to program the rover to blink and LED when it sees a certain # 
 #     amount of light. This is done using a phototransistor, which sends a signal when it detects light. #
 #     The main concepts covered in this project are If/Else statements, and multiple Inputs/Outputs      #
-#
+# For this project, you will not need to modify any code. Read through the project and understand how it #
+#     works, then run the code and watch what happens!                                                   #
 ##########################################################################################################
 
 # Step 1: Importing Libraries
