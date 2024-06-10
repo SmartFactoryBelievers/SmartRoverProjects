@@ -1,8 +1,11 @@
-##########################################################################
-# Project 2                                                              #
-# Learning Objective: Learn to program using multiple inputs and outputs #
-# Introduciton:      
-##########################################################################
+##########################################################################################################
+# Project 2                                                                                              #
+# Learning Objective: Learn to program using multiple inputs and outputs                                 #
+# Introduction: The goal of this project is to program the rover to blink and LED when it sees a certain # 
+#     amount of light. This is done using a phototransistor, which sends a signal when it detects light. #
+#     The main concepts covered in this project are If/Else statements, and multiple Inputs/Outputs      #
+#
+##########################################################################################################
 
 # Step 1: Importing Libraries
 #   - Here we want the sleep function for timing and GPIO for the Pi's pins.
