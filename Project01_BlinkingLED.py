@@ -84,7 +84,8 @@ while True:
 
     # NOTE: We'll repeat the four lines above, in the while True, over and over again. This is an easy way to code our program to keep running!
 
-# Hit RUN on the Program and Look for a Blinking Light!
+# After reading through the code in this project, you should now understand how it blinks the LED!
+# Hit Run to run the code and look for a blinking LED!
 
 ##############
 # Challenges #
