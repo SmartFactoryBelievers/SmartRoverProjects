@@ -1,8 +1,10 @@
 ######################################################################################
 # Project 4                                                                          #
 # Learning Objective: Learn to program functions that control the rover motors as    #
-#     well as learn how to use for loops in programming. The main concepts covered   #
-#     in this project are "for" loops and motor controls.                            #
+#     well as learn how to use for loops in programming.                             #
+# Introduction: For this project, the goal will be to program the rover to drive for #
+#     a set amount of time on a programmable path. The main concepts covered in this #
+#     project are "for" loops and motor controls.                                    #
 # For this project, you WILL need to modify code to get it to run properly. The      #
 #      sections that need to be changed will be called out in the code               #
 #      You WILL need to modify code to complete the challenges listed at the end of  #
