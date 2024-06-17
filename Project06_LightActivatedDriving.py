@@ -137,7 +137,7 @@ Max_Search_Time = 4
 #   - If the rover has not found light by then, we can get out of the loop with a break statement
 #   - break exits the innermost loop and allows the rover to return to the first sleep command
 
-# Step 5: Main Program
+# Step 5: Run the Code
 
 while True: 
   #   - Continuous outer while loop
@@ -164,22 +164,35 @@ while True:
        #   - A while not loop is the opposite of while loop. 
        #   - A "while not" loop loops until a specific signal is received (goes high), but a while loop loops until a certain signal ends (goes low)
        #   - As long as the Photo_Pin does not send a signal, the while not loop will continue to loop
+      
       Elapsed_Time = round(time.time() - Start_Time,2)
+      #   - Same timer that was used in previous projects
+      
       print('Not enough light, searching for more')
     
         #------------------------ CHALLENGE 4: REPLACE THE "True" WITH THE MODULO OPERATOR ----------------------
         #------------------------ CHALLENGE 5: REPLACE THE "True" WITH A COMPARATIVE (<) BETWEEN Elapsed_Time and Max_Search_Time ----------------------
-      # if True means this piece of the code will run
-      # Therefore, the piece of code within if True will run, then cycle back to the start of the while not loop, and repeat, making the rover spin to look for light
+      #   - if True means this piece of the code will run
+      #    - Therefore, the piece of code within if True will run, then cycle back to the start of the while not loop, and repeat, making the rover spin to look for light
       if True:
         drive_left_turn(Left_Turn_Time)
         sleep(Wait_Time)
+        #   - This section of code will cause the rover to rotate to "search" for more light
         
-      else: # For challenge 4, modulo uses these drive commands on odd loops
+      else: 
+        #   - For challenge 4, modulo uses these drive commands on odd loops
         drive_right_turn(Right_Turn_Time)
         sleep(Wait_Time)
       # else:
-      #   break # Exits the loop after Max Search Time exceeded
+        #   - This else section should be uncommented for challenge 4. Leave it commented out unless working on Challenge 4
+
+      break 
+        #   - Exits the loop after Max Search Time exceeded
+
+#   - Now that you  have read through the project, hit Run and place the rover in the light!
+#   - Try moving the rover into the dark and see how it reacts.
+#   - Once you add the modulo operator to the specified section, try it again. It should run the "else" section on every other press!
+#   - Also try adding in the Max_Search_Time and having it stop once it is reached!
 
 ##############
 # Challenges #
