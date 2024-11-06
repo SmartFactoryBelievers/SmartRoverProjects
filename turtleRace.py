@@ -1,4 +1,3 @@
-    ```python
     import turtle
     import random
 
