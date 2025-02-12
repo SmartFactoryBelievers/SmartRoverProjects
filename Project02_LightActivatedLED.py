@@ -1,7 +1,5 @@
 # Project 2
-
 # Learning to program and using inputs and outputs
-
 # Build the the Project 2 circuit and control a LED with a button
 
 #Challenge 1
@@ -21,36 +19,39 @@
 from time import sleep
 import RPi.GPIO as GPIO
 
-GPIO.setwarnings(False)
-
 #Let's define variables so we can use them later
-Button_Pin =  18 #the internal Pi pin number that goes to snap 6
+Button_Pin = 18 #the internal Pi pin number that goes to snap 6
 LED_Pin = 26 #the internal Pi pin number that goes to snap 3
 
-# For challenge 1, we can try different values here to blink in new patterns
+#------------------------ CHALLENGE 1: CHANGE THE VALUES OF LED_ON AND LED_OFF ----------------------
 LED_On = 1 #duration of LED flash, seconds
 LED_Off = 1 #duration in between flashes, seconds
+#-------------------------------------- END OF CHALLENGE 1 ------------------------------------------
 
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)  #Output pin, start off
-GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #Input pin, start open
+GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW) #Here we are setting up the LED_Pin to start with the LED off
+GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #Here we are setting up the Button_Pin to start with the Button not pressed
 
 while True: #Looping over and over again
+# Here we use the If statement which evaluates a logical expression
+# It is checking if the button is pressed by reading tha value of the pin
+# If the button pin reads True (on), then it executes the indented code
+  #------------------------ CHALLENGE 4: CHANGE THE "IF" STATEMENT FROM TRUE TO FALSE ----------------------
+  if GPIO.input(Button_Pin) == True: #When the button is pressed, blink LED
+  #-------------------------------------- END OF CHALLENGE 2 ------------------------------------------
     
-    # Here we use the If statement which evaluates a logical expression
-    # It is checking if the button is pressed by reading tha value of the pin
-    # If the button pin reads True (on), then it executes the indented code 
-    
-    if GPIO.input(Button_Pin) == True: #When the button is pressed, blink LED
-        sleep(LED_Off) #Keep LED off for defined duration
-        GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
-        sleep(LED_On) #Keep LED on for defined duration
-        GPIO.output(LED_Pin, GPIO.LOW) #Turn lED off
-        
+    sleep(LED_Off) #Keep LED off for defined duration
+    GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
+    sleep(LED_On) #Keep LED on for defined duration
+    GPIO.output(LED_Pin, GPIO.LOW) #Turn lED off
     # If the button is not pressed, the code will go to the else statement
-    else:
-        print('Button not pressed')
-        sleep(1)
-            
-GPIO.cleanup()
+  else:
+    print('Button not pressed')
+    sleep(1)
+
+
+#------------------------ CHALLENGE 2: REPLACE THE LED SNAP COMPONENT WITH THE BUZZER SNAP COMPONENT AND RUN THE PROGRAM AGAIN ----------------------
+
+#------------------------ CHALLENGE 3: REPLACE THE LED SNAP COMPONENT WITH THE PHOTOTRANSISTOR SNAP COMPONENT AND RUN THE PROGRAM AGAIN----------------------
+#WHAT HAPPENS WHEN YOU COVER THE PHOTOTRANSISTOR WITH YOUR HAND?
