@@ -28,6 +28,8 @@ import time
 from time import sleep
 import RPi.GPIO as GPIO
 
+GPIO.setwarnings(False)
+
 #Let's define variables so we can use them later
 Left_Forward_Pin =  35 #the internal Pi pin number that goes to snap 1
 Left_Backward_Pin =  31 #the internal Pi pin number that goes to snap 2
@@ -132,3 +134,5 @@ while True: #Looping over and over again
             # Press B and released, not still pressed after delay
             else:
                 drive_right_turn(Right_Turn_Time)
+
+GPIO.cleanup()

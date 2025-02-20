@@ -28,6 +28,8 @@ import cv2
 # Numpy is a great numerical tools package to help with the math required 
 import numpy as np
 
+GPIO.setwarnings(False)
+
 #Let's define variables so we can use them later
 LED_Pin =  21 #the internal Pi pin number that goes to snap 4
 Buzzer_Pin =  26 #the internal Pi pin number that goes to snap 3
@@ -100,3 +102,5 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 
     # Iterate counter
     i = i +1
+
+GPIO.cleanup()

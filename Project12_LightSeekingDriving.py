@@ -28,6 +28,7 @@ import cv2
 # Numpy is a great numerical tools package to help with the math required
 import numpy as np
 
+GPIO.setwarnings(False)
 
 #Let's define variables so we can use them later
 Left_Forward_Pin =  35 #the internal Pi pin number that goes to snap 1
@@ -176,3 +177,5 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     
     #Clearing image cache
     rawCapture.truncate(0)
+
+GPIO.cleanup()
