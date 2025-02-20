@@ -25,6 +25,8 @@ from picamera import PiCamera
 # Numpy is a great numerical tools package to help with the math required
 import numpy as np
 
+GPIO.setwarnings(False)
+
 #Let's define variables so we can use them later
 LED_Pin =  21 #the internal Pi pin number that goes to snap 4
 Buzzer_Pin = 26 #the internal Pi pin number that goes to snap 3
@@ -124,3 +126,5 @@ while True:
         # For challenge 4, update Last_Color after outputs
         #Last_Color = Color
         print('Ready to take photo')
+
+GPIO.cleanup()
