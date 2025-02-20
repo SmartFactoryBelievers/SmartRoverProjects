@@ -31,6 +31,8 @@
 from picamera import PiCamera, Color
 from time import sleep
 
+GPIO.setwarnings(False)
+
 # Setting up the camera
 camera = PiCamera()
 
@@ -84,3 +86,5 @@ for effect in camera.IMAGE_EFFECTS:
 camera.stop_preview()
 
 camera.close()
+
+GPIO.cleanup()
