@@ -52,7 +52,6 @@ GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 #Our input pin from the phototransistor
 GPIO.setup(Photo_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-
 #Let's write some driving functions we can use later
 def drive_forward(time):    
     GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
@@ -100,7 +99,6 @@ count = 0
 Max_Search_Time = 4 #seconds
 # If the rover has not found light by then, we can get out of the loop with a break statement
 # break exits the innermost loop and allows the rover to return to the first sleep command
-
 
 while True: # Continuous outer while loop
     sleep(0.25)

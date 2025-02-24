@@ -25,7 +25,6 @@
 # Try looping through all the IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES options
 # and annotate the image with their current levels
 
-
 #Importing libraries
 # Here we want sleep for timing and picamera for the Pi's camera
 from picamera import PiCamera, Color
@@ -75,7 +74,6 @@ for i in range(100):
     camera.annotate_text = '%s' %i
     sleep(0.1)
 camera.stop_preview()
-
 
 # For challenge 6, try iterating through IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES 
 camera.start_preview()

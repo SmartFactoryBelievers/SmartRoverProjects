@@ -32,7 +32,6 @@ LED_Pin =  21 #the internal Pi pin number that goes to snap 4
 Buzzer_Pin = 26 #the internal Pi pin number that goes to snap 3
 Button_Pin =  18 #the internal Pi pin number that goes to snap 6
 
-
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
 #Our output pins, start off
@@ -40,7 +39,6 @@ GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Buzzer_Pin, GPIO.OUT, initial=GPIO.LOW)
 #Our input pins, start down
 GPIO.setup(Button_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
 
 # Setting up camera for analysis and to emphasize colors 
 camera = PiCamera()

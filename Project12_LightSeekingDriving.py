@@ -51,7 +51,6 @@ GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 
-
 #Let's write some driving functions we can use later
 def drive_forward(time):    
     GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
@@ -116,7 +115,7 @@ Start_Time = time.time()
 Max_Search_Time = 30 #seconds
 
 # For challenge 4, we can initialize a variable for Light Intensity to scale the turn durations
-Light_Intensity = 1
+# Light_Intensity = 1
 
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
     #Capturing image from camera and converting to HSV format
@@ -137,13 +136,12 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     print('L = ' + str(Left_Light_Perc) + ' and R = ' + str(Right_Light_Perc))
 
     # For challenge 3, determining time passed since forward drive
-    Elapsed_Time = round(time.time() - Start_Time,2)
+    # Elapsed_Time = round(time.time() - Start_Time,2)
     
     # For challenge 4, let's find the ratio of the max light to the min light
     # We can set this as the intensity with np.max([Left_Light_Perc, Right_Light_Perc])
     # and np.min([Left_Light_Perc, Right_Light_Perc]), respectively
     # Light_Intensity = max light / min light
-    
     
     # If the left side is lighter than the threshold, turn left
     if Left_Light_Perc > Left_Threshold/100:
@@ -156,7 +154,6 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
             
         # If neither side exceeds the threshold, drive forward (or reverse?)    
         else:
-            
             if True: # Try changing the True to a comparitive (<) between
                     # Elapsed_Time and Max_Search_Time for challenge 3
                 
