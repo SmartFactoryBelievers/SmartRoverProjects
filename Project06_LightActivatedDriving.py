@@ -52,7 +52,6 @@ GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 #Our input pin from the phototransistor
 GPIO.setup(Photo_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-
 #Let's write some driving functions we can use later
 def drive_forward(time):    
     GPIO.output(Left_Forward_Pin, GPIO.HIGH) #Left motor forward
