@@ -34,7 +34,6 @@ GPIO.setwarnings(False)
 LED_Pin =  21 #the internal Pi pin number that goes to snap 4
 Buzzer_Pin =  26 #the internal Pi pin number that goes to snap 3
 
-
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
 #Our output pins, start off
