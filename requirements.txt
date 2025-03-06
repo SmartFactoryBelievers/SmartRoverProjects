@@ -1,0 +1,25 @@
+# requirements.txt
+
+"
+Here's a sample requirements.txt file for a standard Python project. 
+This file lists the dependencies the project needs to run.
+You can customize it based on the specific libraries and versions based on your project's needs.
+To install the dependencies listed in requirements.txt, you can use the following command: pip install -r requirements.txt
+"
+
+# <package name>: <package description>
+<package>==<version of package>
+
+"see below example"
+# pytest: A framework that makes building simple and scalable test cases easy
+pytest==7.1.2
+
+# numpy: A fundamental package for scientific computing with Python
+numpy==1.22.3
+
+# ruby: A dynamic, open source programming language with a focus on simplicity and productivity.
+# ruby is a dependency of mdless
+ruby==2.7.4p191
+
+# mdless: a utility that provides a formatted and highlighted view of Markdown files in Terminal.
+mdless 2.1.57
