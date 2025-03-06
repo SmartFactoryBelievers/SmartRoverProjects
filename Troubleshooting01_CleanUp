@@ -1,0 +1,26 @@
+# Do not edit this piece of code
+# This program is designed to fix "ghost" motor issues
+# These occur when the motors run when they should not or outside of a project
+
+import RPi.GPIO as GPIO
+
+Left_Forward_Pin = 35 # The internal Pi pin number that goes to snap 1
+Left_Backward_Pin = 31 # The internal Pi pin number that goes to snap 2
+Right_Forward_Pin = 26 # The internal Pi pin number that goes to snap 3
+Right_Backward_Pin = 21 # The internal Pi pin number that goes to snap 4
+
+GPIO.setmode(GPIO.BOARD)
+
+GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
+
+GPIO.output(Left_Forward_Pin, GPIO.LOW)
+GPIO.output(Left_Backward_Pin, GPIO.LOW)
+GPIO.output(Right_Forward_Pin, GPIO.LOW)
+GPIO.output(Right_Backward_Pin, GPIO.LOW)
+
+# Clean up everything
+print("Cleaning Up")
+GPIO.cleanup()
