@@ -26,8 +26,6 @@ import time
 from time import sleep
 import RPi.GPIO as GPIO
 
-GPIO.setwarnings(False)
-
 #Let's define variables so we can use them later
 Left_Forward_Pin =  35 #the internal Pi pin number that goes to snap 1
 Left_Backward_Pin =  31 #the internal Pi pin number that goes to snap 2
@@ -49,8 +47,9 @@ GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
-#Our input pin from the phototransistor
+#Our input pin from the button
 GPIO.setup(Photo_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
 
 #Let's write some driving functions we can use later
 def drive_forward(time):    
@@ -100,9 +99,16 @@ Max_Search_Time = 4 #seconds
 # If the rover has not found light by then, we can get out of the loop with a break statement
 # break exits the innermost loop and allows the rover to return to the first sleep command
 
+
 while True: # Continuous outer while loop
     sleep(0.25)
     count = count + 1 # Increment the counter for the modulo
+    GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
+    #Our input pin from the button
+    GPIO.setup(Photo_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     
     # If the phototransistor detects enough light, drive towards it
     if GPIO.input(Photo_Pin):
