@@ -31,8 +31,6 @@ LED_Off = .1 #duration in between flashes, seconds
 GPIO.setmode(GPIO.BOARD) 
 GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)  #Output pin, start off
 
-GPIO.output(LED_Pin, GPIO.LOW)
-
 while True: #Looping over and over again
     sleep(LED_Off) #Keep LED off for defined duration
     GPIO.output(LED_Pin, GPIO.HIGH) #Turn lED on

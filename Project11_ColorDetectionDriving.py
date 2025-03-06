@@ -134,8 +134,8 @@ while True:
         # For each of red, green, and blue, calculate the most prominent color through means
         for col in range(0,3):
             RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))        
-        Color = RGB_Text[np.argmax(RGB_Array)]
-        print(Color)
+            Color = RGB_Text[np.argmax(RGB_Array)]
+            print(Color)
         
         # For challenge 3, let's compare the most prominent color to the second most
         # We can use this ratio to set the Color_Intensity variable
