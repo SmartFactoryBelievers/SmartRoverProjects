@@ -67,8 +67,8 @@ def output_pin_on(Out_Pin, Delay):
 #Here's a function for turning an output pin off, can you fill in the missing pieces?
 # Replace the ?? with the variables and then uncomment
 def output_pin_off(Out_Pin, Delay):
-    sleep(??) #wait the Delay
-    GPIO.output(??, GPIO.LOW) #turn the Out_Pin off
+    sleep(Delay) #wait the Delay
+    GPIO.output(Out_Pin, GPIO.LOW) #turn the Out_Pin off
 
 while True: #Looping over and over again
     
@@ -77,21 +77,21 @@ while True: #Looping over and over again
     
     # If A is pressed and C is not, let's blink the LED
     if read_selector_button(A_Pin) and not(read_selector_button(C_Pin)):
-        output_pin_on(LED_Pin, Pin_On)
-        output_pin_off(LED_Pin, Pin_Off)
+        output_pin_on(LED_Pin, Pin_Off)
+        output_pin_off(LED_Pin, Pin_On)
         
     # If C is pressed and A is not, let's buzz the buzzer
     if read_selector_button(C_Pin) and not(read_selector_button(A_Pin)):
-        output_pin_on(Buzzer_Pin, Pin_On)
-        output_pin_off(Buzzer_Pin, Pin_Off)
+        output_pin_on(Buzzer_Pin, Pin_Off)
+        output_pin_off(Buzzer_Pin, Pin_On)
         
     # If A and C are both pressed, by pressing B, maybe we can flash both LED and buzzer?
     # Replace the ?? with the LED_Pin and Buzzer_Pin variables and then uncomment
     if read_selector_button(A_Pin) and read_selector_button(C_Pin):
-        output_pin_on(??, Pin_On) #LED On
-        output_pin_off(??, Pin_Off) #LED Off
-        output_pin_on(??, Pin_On) #Buzzer On
-        output_pin_off(??, Pin_Off) #Buzzer Off
+        #output_pin_on(??, Pin_Off)
+        #output_pin_off(??, Pin_On)
+        #output_pin_on(??, Pin_Off)
+        #output_pin_off(??, Pin_On)
         
     # Wait 1 second to reset    
     sleep(1)

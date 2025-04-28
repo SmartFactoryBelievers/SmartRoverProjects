@@ -35,18 +35,18 @@ camera = PiCamera()
 
 # Change the number of pixels and clarity of the camera
 # For challenge 1 and 2, see what low and high resolution look like
-camera.resolution = (640, 480)
+camera.resolution = (2592, 1944)
 
 # Change the rate at which the camera records images
-camera.framerate = 30
+camera.framerate = 15
 
 # Rotate the image by x degrees
 # Note that the camera assembly is upside down so 180 is right side up
 # For challenge 3, try other rotation angles
-camera.rotation = 180
+camera.rotation = 270
 
 # For challenge 4, try annotating the image
-# Add text on top of the image 
+# Add text on top of the image
 camera.annotate_text = 'Hello World!'
 # Change the text size on top of the image between 6 and 160
 camera.annotate_text_size = 50
@@ -54,7 +54,7 @@ camera.annotate_text_size = 50
 camera.annotate_foreground = Color('red')
 camera.annotate_background = Color('blue')
 
-# Change the contrast between 0 and 100 (color/luminence difference between objects) 
+# Change the contrast between 0 and 100 (color/luminence difference between objects)
 camera.contrast = 75
 
 # Change the brightness of the image between 0 and 100
@@ -68,17 +68,17 @@ camera.stop_preview()
 # For challenge 5, try iterating through the brightness levels instead of contrast
 camera.start_preview()
 for i in range(100):
-    camera.contrast = i
-    camera.annotate_text = '%s' %i
-    sleep(0.1)
+  camera.brightness = i
+  camera.annotate_text = '%s' %i
+  sleep(0.1)
 camera.stop_preview()
 
-# For challenge 6, try iterating through IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES 
+# For challenge 6, try iterating through IMAGE_EFFECTS, EXPOSURE_MODES, and AWB_MODES
 camera.start_preview()
-for effect in camera.IMAGE_EFFECTS:
-    camera.annotate_text = '%s' %effect
-    camera.image_effect = effect
-    sleep(1)
+for effect in camera.EXPOSURE_MODES:
+  camera.annotate_text = '%s' %effect
+  camera.exposure_mode = effect
+  sleep(1)
 camera.stop_preview()
 
 camera.close()
