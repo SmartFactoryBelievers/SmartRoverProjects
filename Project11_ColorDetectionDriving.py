@@ -25,6 +25,8 @@ from picamera import PiCamera
 # Numpy is a great numerical tools package to help with the math required
 import numpy as np
 
+GPIO.setwarnings(False)
+
 #Let's define variables so we can use them later
 Left_Forward_Pin =  35 #the internal Pi pin number that goes to snap 1
 Left_Backward_Pin =  31 #the internal Pi pin number that goes to snap 2
@@ -132,8 +134,8 @@ while True:
         # For each of red, green, and blue, calculate the most prominent color through means
         for col in range(0,3):
             RGB_Array.append(np.mean(Image[:,:,col]-np.mean(Image)-np.mean(Noise[:,:,col])))        
-        Color = RGB_Text[np.argmax(RGB_Array)]
-        print(Color)
+            Color = RGB_Text[np.argmax(RGB_Array)]
+            print(Color)
         
         # For challenge 3, let's compare the most prominent color to the second most
         # We can use this ratio to set the Color_Intensity variable
@@ -169,3 +171,5 @@ while True:
         # For challenge 4, update Last_Color after outputs
         #Last_Color = Color
         print('Ready to take photo')
+
+GPIO.cleanup()

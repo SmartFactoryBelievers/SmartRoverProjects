@@ -25,14 +25,14 @@ from picamera import PiCamera
 # We will also need PiRGBArray and cv2 for computer vision/image processing
 from picamera.array import PiRGBArray
 import cv2
-# Numpy is a great numerical tools package to help with the math required
+# Numpy is a great numerical tools package to help with the math required 
 import numpy as np
 
 GPIO.setwarnings(False)
 
 #Let's define variables so we can use them later
-LED_Pin = 21 #the internal Pi pin number that goes to snap 4
-Buzzer_Pin = 26 #the internal Pi pin number that goes to snap 3
+LED_Pin =  21 #the internal Pi pin number that goes to snap 4
+Buzzer_Pin =  26 #the internal Pi pin number that goes to snap 3
 
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
@@ -51,7 +51,7 @@ rawCapture = PiRGBArray(camera, size=(640, 480))
 # Hue runs 0 to 180 while Saturation and Value are 0 to 255
 
 # For challenge 4, try setting the third value (Lightness) of Light_Min to 0
-Light_Min = np.array([0,50,0], np.uint8)
+Light_Min = np.array([0,50,155], np.uint8)
 Light_Max = np.array([180,255,255], np.uint8)
 
 # Ambient light percentage threshold for turning the LED
@@ -63,43 +63,43 @@ i=0
 
 # Using the video camera feature of the camera through an image capture for loop
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
-  #Capturing image from camera and converting to HSV format
-  sleep(3)
-  image = frame.array
-  hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-  
-  #Setting the lower bound as the average of the ambient light
-  if i < 1:
-    Ambient_Light = np.mean(np.mean(hsv[:,:,2]))
-    #For challenge 4, try setting Light_Max to the ambient level instead
-    Light_Max = np.array([180, 255, Ambient_Light], np.uint8)
+    #Capturing image from camera and converting to HSV format
+    sleep(3)
+    image = frame.array
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+    #Setting the lower bound as the average of the ambient light
+    if i < 1:
+        Ambient_Light = np.mean(np.mean(hsv[:,:,2]))
+        #For challenge 4, try setting Light_Max to the ambient level instead
+        Light_Min = np.array([0,50,Ambient_Light], np.uint8)
+
+    #Filtering out pixels with less lightness than the minimum/ambient average
+    # This creates what's called a mask used in demarcating key regions of an image
+    Light_Filter = cv2.inRange(hsv,Light_Min, Light_Max)
     
-  #Filtering out pixels with less lightness than the minimum/ambient average
-  # This creates what's called a mask used in demarcating key regions of an image
-  Light_Filter = cv2.inRange(hsv,Light_Min, Light_Max)
-  
-  #Percentage of pixels above the light threshold
-  # This is calculated as the True regions of the mask / number of pixels in image
-  Light_Percent = round(sum(sum(Light_Filter ==255))/(640*480),2)
-  
-  # If the light percentage threshold is exceeded, blink the LED
-  if Light_Percent > Light_Threshold/100:
-    print(str(Light_Percent) + ' of image above ambient light levels')
-    GPIO.output(LED_Pin, GPIO.HIGH) #LED on
-    sleep(2)
-    GPIO.output(LED_Pin, GPIO.LOW) #LED off
+    #Percentage of pixels above the light threshold
+    # This is calculated as the True regions of the mask / number of pixels in image
+    Light_Percent = round(sum(sum(Light_Filter ==255))/(640*480),2)
     
-  # For challenge 3, if there's not enough light, add a buzzer here
-  else:
-    print('Not enough light detected')
-    GPIO.output(Buzzer_Pin, GPIO.HIGH) #Buzzer on
-    sleep(2)
-    GPIO.output(Buzzer_Pin, GPIO.LOW) #Buzzer off
-    
-  #Clearing image cache to avoid overwhelming the Pi memory
-  rawCapture.truncate(0)
-  
-  # Iterate counter
-  i = i + 1
+    # If the light percentage threshold is exceeded, blink the LED
+    if Light_Percent > Light_Threshold/100:
+        print(str(Light_Percent) + ' of image above ambient light levels')
+        GPIO.output(LED_Pin, GPIO.HIGH) #LED on
+        sleep(2)
+        GPIO.output(LED_Pin, GPIO.LOW) #LED off
+        
+    # For challenge 3, if there's not enough light, add a buzzer here     
+    else:
+        print('Not enough light detected') 
+        #GPIO.output(??, GPIO.HIGH) #Buzzer on
+        #sleep(2)
+        #GPIO.output(??, GPIO.LOW) #Buzzer off
+        
+    #Clearing image cache to avoid overwhelming the Pi memory
+    rawCapture.truncate(0)
+
+    # Iterate counter
+    i = i +1
 
 GPIO.cleanup()
