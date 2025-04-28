@@ -1,6 +1,0 @@
-# Smart Rover Project 07: Controlled Driving
-The following module will guide learners through the individual Smart Rover project. The module contains key terminology used in the project, technology troubleshooting tips, Smart Rover tips and tricks, and extension resources for individual exploration. 
-
-[Click here](https://smartfactorybelievers.deloitte.com/curriculum-resources/lessons/26/overview) to access the Project 7 module.
-
-[Click here](https://smartfactorybelievers.deloitte.com/) to access the Smart Factory Believers website for Project Guides, Learning Modules, and Student Resources!
