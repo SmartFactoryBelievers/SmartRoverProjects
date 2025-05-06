@@ -49,7 +49,7 @@ GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
-#Our input pin from the button
+#Our input pin from the phototransistor
 GPIO.setup(Photo_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
@@ -105,12 +105,6 @@ Max_Search_Time = 4 #seconds
 while True: # Continuous outer while loop
     sleep(0.25)
     count = count + 1 # Increment the counter for the modulo
-    GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
-    GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
-    GPIO.setup(Right_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
-    GPIO.setup(Right_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
-    #Our input pin from the button
-    GPIO.setup(Photo_Pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     
     # If the phototransistor detects enough light, drive towards it
     if GPIO.input(Photo_Pin):
