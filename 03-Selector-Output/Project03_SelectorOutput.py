@@ -88,10 +88,10 @@ while True: #Looping over and over again
     # If A and C are both pressed, by pressing B, maybe we can flash both LED and buzzer?
     # Replace the ?? with the LED_Pin and Buzzer_Pin variables and then uncomment
     if read_selector_button(A_Pin) and read_selector_button(C_Pin):
-        #output_pin_on(??, Pin_Off)
-        #output_pin_off(??, Pin_On)
-        #output_pin_on(??, Pin_Off)
-        #output_pin_off(??, Pin_On)
+        #output_pin_on(??, Pin_On)
+        #output_pin_off(??, Pin_Off)
+        #output_pin_on(??, Pin_On)
+        #output_pin_off(??, Pin_Off)
         
     # Wait 1 second to reset    
     sleep(1)
