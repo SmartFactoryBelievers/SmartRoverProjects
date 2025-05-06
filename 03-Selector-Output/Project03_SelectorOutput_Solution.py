@@ -89,8 +89,8 @@ while True: #Looping over and over again
   # Replace the ?? with the LED_Pin and Buzzer_Pin variables and then uncomment
   if read_selector_button(A_Pin) and read_selector_button(C_Pin):
     output_pin_on(LED_Pin, Pin_On) # LED On
-    output_pin_on(LED_Pin, Pin_Off) # LED Off
-    output_pin_off(Buzzer_Pin, Pin_On) # Buzzer On
+    output_pin_off(LED_Pin, Pin_Off) # LED Off
+    output_pin_on(Buzzer_Pin, Pin_On) # Buzzer On
     output_pin_off(Buzzer_Pin, Pin_Off) # Buzzer Off
     
   # Wait 1 second to reset
