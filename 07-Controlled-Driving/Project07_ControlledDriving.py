@@ -126,12 +126,12 @@ while True: #Looping over and over again
         
     # Pressing B, we can use timing to determine if it's released or held
     if GPIO.input(C_Pin) and GPIO.input(A_Pin):
-            sleep(0.5)
-            #Press B and hold, check if still pressed after delay
-            if GPIO.input(C_Pin) and GPIO.input(A_Pin):
-                drive_left_turn(Left_Turn_Time)
-            # Press B and released, not still pressed after delay
-            else:
-                drive_right_turn(Right_Turn_Time)
+        sleep(0.5)
+        #Press B and hold, check if still pressed after delay
+        if GPIO.input(C_Pin) and GPIO.input(A_Pin):
+            drive_left_turn(Left_Turn_Time)
+        # Press B and released, not still pressed after delay
+        else:
+            drive_right_turn(Right_Turn_Time)
 
 GPIO.cleanup()
