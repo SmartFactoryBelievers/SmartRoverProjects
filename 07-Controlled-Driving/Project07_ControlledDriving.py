@@ -94,6 +94,7 @@ def drive_right_turn(time):
     print('right turn')
     sleep(1)
     
+
 # Here we are creating a timer function to record the duration of the button press
 def button_press_timer():
     Start_Time = time.time() #start the timer
@@ -102,6 +103,7 @@ def button_press_timer():
     return round(time.time() - Start_Time,2) #stop the timer, return elapsed time
 # For challenge 3, try uncommenting the Press_Time statements, then use it for the
 # the drive commands time arguments
+
 
 while True: #Looping over and over again
     sleep(0.5)
@@ -117,19 +119,19 @@ while True: #Looping over and over again
     # Only pressing C
     if GPIO.input(C_Pin) and not GPIO.input(A_Pin): #only pressing C
         # For challenge 4, you can use a sleep delay and second if, else to see
-        # whether B was pressed and released or held 
+        # whether C was pressed and released or held 
         
         #Press_Time = button_press_timer(C_Pin) # For challenge 3
         drive_backward(Backward_Time)
         
     # Pressing B, we can use timing to determine if it's released or held
     if GPIO.input(C_Pin) and GPIO.input(A_Pin):
-        sleep(0.5)
-        #Press B and hold, check if still pressed after delay
-        if GPIO.input(C_Pin) and GPIO.input(A_Pin):
-            drive_left_turn(Left_Turn_Time)
-        # Press B and released, not still pressed after delay
-        else:
-            drive_right_turn(Right_Turn_Time)
+            sleep(0.5)
+            #Press B and hold, check if still pressed after delay
+            if GPIO.input(C_Pin) and GPIO.input(A_Pin):
+                drive_left_turn(Left_Turn_Time)
+            # Press B and released, not still pressed after delay
+            else:
+                drive_right_turn(Right_Turn_Time)
 
 GPIO.cleanup()
