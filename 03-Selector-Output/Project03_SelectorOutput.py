@@ -77,8 +77,8 @@ while True: #Looping over and over again
     
     # If A is pressed and C is not, let's blink the LED
     if read_selector_button(A_Pin) and not(read_selector_button(C_Pin)):
-        output_pin_on(LED_Pin, Pin_Off)
-        output_pin_off(LED_Pin, Pin_On)
+        output_pin_on(LED_Pin, Pin_On)
+        output_pin_off(LED_Pin, Pin_Off)
         
     # If C is pressed and A is not, let's buzz the buzzer
     if read_selector_button(C_Pin) and not(read_selector_button(A_Pin)):
