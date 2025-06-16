@@ -34,9 +34,3 @@ Copyright © 2024 Deloitte Development LLC. All rights reserved. See the [LICENS
 
 ## Contact
 If you have any questions or need further assistance, feel free to reach out to us at contact@smartfactorybelievers.com. We look forward to your contributions and feedback.
-
-<footer>
-
-&copy; 2024 Deloitte Development LLC. All rights reserved &bull; [Code of Conduct]()
-
-</footer>
