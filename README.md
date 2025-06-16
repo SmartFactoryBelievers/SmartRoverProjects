@@ -16,10 +16,6 @@ build for the future.
 
 |       |              Project Name                      |  Learning Objectives |
 | :---: | :--------------------------------------------: | :---------------------:  |
-|  00   | [Introduction to Circuits](./00-Introduction/01-Introduction-to-Circuits/README.md)      | Introduction to Circuits  |
-|  00   | [Introduction to Python](./00-Introduction/02-Introduction-to-Python/README.md)    | Introduction to Python |
-|  00   | [Smart Rover Kit](./00-Introduction/03-Smart-Rover-Kit/README.md)    | Introduction to the Smart Rover Kit |
-|  00   | [Introduction to Motor Control](./00-Introduction/04-Introduction-to-Motor-Control/README.md)    | Introduction to Motor Control |
 |  01   | [Blinking LED](./01-Blinking-LED/README.md)  | To learn programming basics and make the LED light blink |
 |  02   | [Light-Activated LED](./02-Light-Activated-LED/README.md)    | To control the LED light with a push button |
 |  03   | [Selector Output](./03-Selector-Output/README.md)    | To program the selector to turn on the LED light in programmed patterns. |
