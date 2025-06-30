@@ -120,6 +120,10 @@ RGB_Text = ['Red','Green','Blue'] #Array for naming color
 camera.capture(Noise,'rgb')
 Noise = Noise-np.mean(Noise)
 
+# For Challenge 4, let's set a variable memory variable for the last color identified and activate 
+# flashes and buzzes a new LED or buzzer output based on the pattern, like Red then Green
+# Last_Color = ??
+
 #Looping with different images to determine object colors
 print('Ready to take photo')
 while True:

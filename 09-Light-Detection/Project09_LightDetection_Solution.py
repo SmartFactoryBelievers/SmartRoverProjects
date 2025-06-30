@@ -38,6 +38,7 @@ Buzzer_Pin = 26 #the internal Pi pin number that goes to snap 3
 GPIO.setmode(GPIO.BOARD)
 #Our output pins, start off
 GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(Buzzer_Pin, GPIO.OUT, initial=GPIO.LOW)
 
 #Setting up the camera for light detection
 camera = PiCamera()

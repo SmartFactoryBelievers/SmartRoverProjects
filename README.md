@@ -33,4 +33,4 @@ build for the future.
 Copyright © 2024 Deloitte Development LLC. All rights reserved. See the [LICENSE](LICENSE) file for more information.
 
 ## Contact
-If you have any questions or need further assistance, feel free to reach out to us at contact@smartfactorybelievers.com. We look forward to your contributions and feedback.
+If you have any questions or need further assistance, feel free to reach out to us at smartfactorybelievers@deloitte.com. We look forward to your contributions and feedback.

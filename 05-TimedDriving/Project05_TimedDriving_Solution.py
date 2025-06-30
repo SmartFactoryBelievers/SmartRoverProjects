@@ -96,14 +96,14 @@ count = 0
 while True: #Looping over and over again
     sleep(0.25)
     
-    # If the button is pressed, let's use the timer function to see how long
-    if GPIO.input(Button_Pin):
-        Button_Time = button_press_timer()
-        print('Button pressed ' + str(Button_Time) + ' seconds')
-    
+  # If the button is pressed, let's use the timer function to see how long
+  if GPIO.input(Button_Pin):
+    Button_Time = button_press_timer()
+    print('Button pressed ' + str(Button_Time) + ' seconds')
+      
     if count % 2 == 0: # Try changing the True to the modulo for challenges 3 and 4
-        #For challenges 1 and 2, try adding new driving functions here
-        drive_forward(Button_Time)
+      #For challenges 1 and 2, try adding new driving functions here
+      drive_forward(Button_Time)
     
     else: # To be used in challenges 3 and 4
         drive_backward(Button_Time) # Add other drive functions here for odd button presses
