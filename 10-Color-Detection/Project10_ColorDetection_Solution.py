@@ -76,6 +76,10 @@ Col_Margin = 0.8
 # Let's check if the max * margin > mid
 # with max as np.max(RGB_Array) and mid as np.median(RGB_Array)
 
+# For Challenge 4, let's set a variable memory variable for the last color identified and activate 
+# flashes and buzzes a new LED or buzzer output based on the pattern, like Red then Green
+# Last_Color = ??
+
 #Looping with different images to determine object colors upon button press
 print('Ready to take photo')
 while True:
