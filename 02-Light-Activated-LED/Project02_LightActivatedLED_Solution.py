@@ -53,4 +53,4 @@ while True: #Looping over and over again
     print('Button not pressed')
     sleep(1)
 
-  GPIO.cleanup()
+GPIO.cleanup()
