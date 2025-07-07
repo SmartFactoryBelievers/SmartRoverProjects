@@ -103,12 +103,12 @@ while True: #Looping over and over again
       print('Button pressed ' + str(Button_Time) + ' seconds')
       
       if count % 2 == 0: # Try changing the True to the modulo for challenges 3 and 4
-        #For challenges 1 and 2, try adding new driving functions here
-        drive_forward(Button_Time)
+          #For challenges 1 and 2, try adding new driving functions here
+          drive_forward(Button_Time)
     
       else: # To be used in challenges 3 and 4
-        drive_backward(Button_Time) # Add other drive functions here for odd button presses
+          drive_backward(Button_Time) # Add other drive functions here for odd button presses
       
-        count = count + 1 # We increment the counter for the next button press
+      count = count + 1 # We increment the counter for the next button press
 
 GPIO.cleanup()
