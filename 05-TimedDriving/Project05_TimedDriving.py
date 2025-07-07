@@ -35,6 +35,7 @@ Button_Pin =  18 #the internal Pi pin number that goes to snap 6
 
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
+
 #Our output pins, start off
 GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
