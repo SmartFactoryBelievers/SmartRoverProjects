@@ -96,7 +96,7 @@ def drive_right_turn(time):
     
 
 # Here we are creating a timer function to record the duration of the button press
-def button_press_timer():
+def button_press_timer(Button_Pin):
     Start_Time = time.time() #start the timer
     while GPIO.input(Button_Pin): #while the button is pressed...
         print("Button Pressed")
