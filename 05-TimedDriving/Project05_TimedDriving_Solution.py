@@ -35,6 +35,7 @@ Button_Pin = 18 #the internal Pi pin number that goes to snap 6
 
 #Setting up our pins
 GPIO.setmode(GPIO.BOARD)
+
 #Our output pins, start off
 GPIO.setup(Left_Forward_Pin, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(Left_Backward_Pin, GPIO.OUT, initial=GPIO.LOW)
@@ -98,16 +99,16 @@ while True: #Looping over and over again
     
     # If the button is pressed, let's use the timer function to see how long
     if GPIO.input(Button_Pin):
-        Button_Time = button_press_timer()
-        print('Button pressed ' + str(Button_Time) + ' seconds')
-    
-    if count % 2 == 0: # Try changing the True to the modulo for challenges 3 and 4
-        #For challenges 1 and 2, try adding new driving functions here
-        drive_forward(Button_Time)
-    
-    else: # To be used in challenges 3 and 4
-        drive_backward(Button_Time) # Add other drive functions here for odd button presses
+      Button_Time = button_press_timer()
+      print('Button pressed ' + str(Button_Time) + ' seconds')
       
-        count = count + 1 # We increment the counter for the next button press
+      if count % 2 == 0: # Try changing the True to the modulo for challenges 3 and 4
+          #For challenges 1 and 2, try adding new driving functions here
+          drive_forward(Button_Time)
+    
+      else: # To be used in challenges 3 and 4
+          drive_backward(Button_Time) # Add other drive functions here for odd button presses
+      
+      count = count + 1 # We increment the counter for the next button press
 
 GPIO.cleanup()
