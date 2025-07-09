@@ -20,7 +20,7 @@ build for the future.
 |  02   | [Light-Activated LED](./02-Light-Activated-LED/README.md)    | To control the LED light with a push button |
 |  03   | [Selector Output](./03-Selector-Output/README.md)    | To program the selector to turn on the LED light in programmed patterns. |
 |  04   | [Programmed Driving](./04-Programmed-Driving/README.md)    | To program the rover to drive in a coded path. |
-|  05   | [Timed Driving](./05-Timed-Driving/README.md)    | To program the Rover to drive in a coded path for the duration of the button push. |
+|  05   | [Timed Driving](./05-TimedDriving/README.md)    | To program the Rover to drive in a coded path for the duration of the button push. |
 |  06   | [Light-Activated Driving](./06-Light-Activated-Driving/README.md)  | To program the Rover to detect light before driving forward. |
 |  07   | [Controlled Driving](./07-Controlled-Driving/README.md)  | To program the Rover to drive according to selected inputs. |
 |  08   | [Introduction to Camera](./08-Introduction-To-Camera/README.md)  | To learn about the camera and different image settings. |
