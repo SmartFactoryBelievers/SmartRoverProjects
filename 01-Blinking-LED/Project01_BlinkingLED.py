@@ -1,6 +1,6 @@
 # Project 1
 
-# Learning to program and use outputs
+# Learning to program and using outputs
 
 # Build the the Project 1 circuit and blink a LED
 
