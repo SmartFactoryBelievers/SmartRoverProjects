@@ -1,21 +1,44 @@
-# Project 1
+# Project 1: Blinking LED
+# Version v2.2, August 2025
+#
+# Goal:
+# Learn how to program your Raspberry Pi to make an LED blink.
+#
+# Step 1: Read the Code Carefully
+# - At the top of the code, you’ll see lines starting with '#'.
+# - These are comments that explain what the code is doing. Read each comment to understand the steps.
+# - Read every line of this code carefully to understand the variables & functions
+#
+# Step 2: Build Your Circuit
+# - Gather the components: Smart Module, LED (D4), 100Ω Resistor (R1), 3 snap connector (3), horn (W1)
+# - Follow the diagram to connect the LED and resistor to the correct pins on your Raspberry Pi.
+#
+# Step 3: Open the Python File in Thonny
+# - Open Thonny on your Raspberry Pi.
+# - Load the file Project01_BlinkingLED.py.
+#
+# Step 4: Run the Code
+# - Click the green 'Run' Button to run the code.
+#
+# Step 5: Try the Challenges
+# - Challenge 1:
+#   - The code uses two variables: LED_On and LED_Off.
+#   - Try changing their values to see how it changes the blinking pattern of your LED.
+#   - For example, set LED_On = 1 and LED_Off = 0.5 and watch what happens!
+# - Challenge 2:
+#   - Replace the LED in your circuit with a buzzer.
+#   - Run the code again to see if you can make a sound.
+#
+# Step 6: Ask for Help if Needed
+# - If you get stuck, ask your teacher or a classmate for help!
 
-# Learning to program and using outputs
-
-# Build the the Project 1 circuit and blink a LED
-
-# Challenge 1
-# Try changing the LED_On and LED_Off variables to change the blinking pattern
-
-#Challenge 2
-# Replace the color LED with buzzer or white LED to try other outputs
-
-#Importing libraries
+# Importing libraries
 # Libraries are defined sets of code for specific uses
 # Here we want the sleep function for timing and GPIO for the Pi's pin
 from time import sleep
 import RPi.GPIO as GPIO
 
+# Clears harmless error warnings 
 GPIO.setwarnings(False)
 
 # Let's define variables so we can use them later
@@ -27,16 +50,14 @@ LED_Pin =  7 #the internal Pi pin number that goes to snap 7
 LED_On = .2 #duration of LED flash, seconds
 LED_Off = .1 #duration in between flashes, seconds
 
-#Setting up our pin
-GPIO.setmode(GPIO.BOARD) 
-GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)  #Output pin, start off
-
-GPIO.output(LED_Pin, GPIO.LOW)
+# Let's set up our Raspberry Pi
+GPIO.setmode(GPIO.BOARD) # Sets pin numbering to match the physical Raspberry Pi board layout.
+GPIO.setup(LED_Pin, GPIO.OUT, initial=GPIO.LOW)  #Set LED_Pin as an Output pin, start off
 
 while True: #Looping over and over again
     sleep(LED_Off) #Keep LED off for defined duration
-    GPIO.output(LED_Pin, GPIO.HIGH) #Turn lED on
+    GPIO.output(LED_Pin, GPIO.HIGH) #Turn LED on
     sleep(LED_On) #Keep LED on for defined duration
-    GPIO.output(LED_Pin, GPIO.LOW) #Turn lED off
+    GPIO.output(LED_Pin, GPIO.LOW) #Turn LED off
 
-GPIO.cleanup()
+GPIO.cleanup() # Turn off all output pins
